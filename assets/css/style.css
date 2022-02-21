@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Special Elite', cursive;
+    font-weight: 300;
+    color: #3a3a3a;
+    font-size: 18px;
+    background: url("../images/background.jpg") no-repeat center 32%;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+}
+
+header {
+    height: 10%;
+    padding: 30px 20px;
+    text-align: center;
+    background-image: linear-gradient(#fff 33%, #3395dc00);
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+#sound-control {
+    margin: 0 auto;
+    height: 20px;
+    width: 100%;
+    padding: 15px;
+}
+
+#sound-control i {
+    font-size: 30px;
+}
+
+.inactive {
+    display: none;
+}
