@@ -8,12 +8,12 @@
 }
 
 body {
-    font-family: 'Special Elite', cursive;
     font-weight: 300;
     color: #3a3a3a;
     font-size: 18px;
-    background: url("../images/background.jpg") no-repeat center 32%;
+    background: url("../images/background.jpg") no-repeat center 20%;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 h1 {
@@ -21,14 +21,22 @@ h1 {
 }
 
 header {
+    font-family: 'Special Elite', cursive;
     height: 10%;
     padding: 30px 20px;
     text-align: center;
     background-image: linear-gradient(#fff 33%, #3395dc00);
+    font-weight: bold;
 }
 
 header h1 {
+    margin-bottom: 3px;
+}
+
+header h2 {
+    font-size: 21px;
     margin-bottom: 10px;
+
 }
 
 #sound-control {
@@ -44,4 +52,51 @@ header h1 {
 
 .inactive {
     display: none;
+}
+
+.game-menu img {
+    height: 200px;
+    float: right;
+    position: absolute;
+    right: -4%;
+    top: 65%;
+}
+
+#game-prefferences {
+    width: 90%;
+    height: 300px;
+    background-color: #ffffffa3;
+    margin: 0 auto;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+#game-prefferences li {
+    list-style-type: none;
+    margin: 20px auto;
+    width: 78%;
+    background-color: #22b3e5ed;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    border: 1px solid dodgerblue;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    text-transform: uppercase;
+}
+
+#game-prefferences button {
+    color: #3a3a3a;
+    font-weight: bold;
+    padding: 10px 40px;
+    font-size: 17px;
+    background-color: #fff;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
 }
