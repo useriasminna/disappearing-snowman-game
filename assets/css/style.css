@@ -29,6 +29,11 @@ header {
     font-weight: bold;
 }
 
+header a {
+    text-decoration: none;
+    color: #3a3a3a;
+}
+
 header h1 {
     margin-bottom: 3px;
 }
@@ -50,17 +55,14 @@ header h2 {
     font-size: 30px;
 }
 
-.inactive {
+#sound-control i:hover {
+    cursor: pointer;
+}
+
+.sound-inactive {
     display: none;
 }
 
-.game-menu img {
-    height: 200px;
-    float: right;
-    position: absolute;
-    right: -4%;
-    top: 73%;
-}
 
 #game-prefferences {
     width: 90%;
@@ -87,6 +89,19 @@ header h2 {
     border: 1px solid dodgerblue;
     box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     text-transform: uppercase;
+    transition: 0.2s ease-out;
+
+}
+
+#game-prefferences li:hover {
+    background-color: #77469b;
+    border: 1px solid #522f6c;
+    cursor: pointer;
+}
+
+.level-active {
+    background-color: #77469b;
+    border: 1px solid #522f6c;
 }
 
 #game-prefferences button {
@@ -99,6 +114,18 @@ header h2 {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 
+}
+
+#game-prefferences button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#game-prefferences img {
+    height: 200px;
+    float: right;
+    position: absolute;
+    right: -4%;
+    top: 73%;
 }
 
 footer {
@@ -120,8 +147,24 @@ footer ul {
     transform: translateY(-50%);
 }
 
+footer li {
+    border: 2px solid #fff0;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    transition: border 0.1s ease-in;
+
+}
+
+footer li:hover {
+    border: 2px solid #fff;
+}
+
 footer a {
     color: white;
     transition: 0.2s ease-out;
     font-size: 25px;
+    position: relative;
+    top: 15%;
 }
