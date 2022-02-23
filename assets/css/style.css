@@ -11,9 +11,11 @@ body {
     font-weight: 300;
     color: #3a3a3a;
     font-size: 18px;
-    background: url("../images/background.jpg") no-repeat center 20%;
-    background-attachment: fixed;
+    background: url("../images/background.jpg") no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Special Elite', cursive;
+
 }
 
 h1 {
@@ -21,7 +23,6 @@ h1 {
 }
 
 header {
-    font-family: 'Special Elite', cursive;
     height: 10%;
     padding: 30px 20px;
     text-align: center;
@@ -171,4 +172,97 @@ footer a {
     font-size: 25px;
     position: relative;
     top: 15%;
+}
+
+#game-body header h2 {
+    margin-bottom: 0px;
+}
+
+#game-area {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+    background-color: #ffffff91;
+    border-radius: 25px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: -2;
+
+
+}
+
+#cartoon-container {
+    width: 100%;
+    height: 205px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    margin: 0 auto;
+    border: 2px solid #ecf7fd;
+    border-radius: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #ffffffbd;
+
+    z-index: -2;
+}
+
+#cartoon-container>img {
+    height: 145px;
+    position: absolute;
+}
+
+#melting-snowman-container {
+    width: 235px;
+    height: 220px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    top: 18%;
+    right: -24%;
+
+}
+
+#sun {
+    top: -8%;
+    left: 0%;
+}
+
+#melting-snowman-container img {
+    height: 145px;
+    position: absolute;
+}
+
+#body {
+    bottom: 15%;
+    right: 15%;
+}
+
+#hat {
+    top: -9%;
+    right: 10%;
+    z-index: -1;
+}
+
+#nose {
+    top: -1%;
+    right: 16%;
+}
+
+#left-hand {
+    top: 6%;
+    right: -4%;
+}
+
+#right-hand {
+    top: 4%;
+    right: 24%;
 }
