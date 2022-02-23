@@ -197,6 +197,21 @@ footer a {
 
 }
 
+#upper-section {
+    width: 100%;
+    border: 2px solid #ecf7fd;
+    border-radius: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #ffffffbd;
+
+    position: relative;
+    z-index: -2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #cartoon-container {
     width: 100%;
     height: 205px;
@@ -206,12 +221,7 @@ footer a {
     position: relative;
 
     margin: 0 auto;
-    border: 2px solid #ecf7fd;
-    border-radius: 25px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background-color: #ffffffbd;
 
-    z-index: -2;
 }
 
 #cartoon-container p {
@@ -249,7 +259,7 @@ footer a {
     position: absolute;
 }
 
-#body {
+.body {
     bottom: 15%;
     right: 15%;
 }
@@ -273,4 +283,66 @@ footer a {
 #right-hand {
     top: 4%;
     right: 24%;
+}
+
+#level-container {
+    width: 80%;
+    height: 40px;
+    text-align: center;
+}
+
+#level-container p:nth-child(1) {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+#level {
+    font-size: 19px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#word-container {
+    width: 80%;
+    text-align: center;
+    margin: 10px 0px 15px;
+}
+
+#underscores {
+    font-size: 26px;
+    letter-spacing: 3px;
+    line-height: 30px;
+    overflow-wrap: break-word;
+
+}
+
+#hint-container {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#hint-container i {
+    font-size: 23px;
+    margin: 0 auto;
+    color: #f19306;
+    transition: color 0.2s ease-in;
+}
+
+#hint-container i:hover {
+    cursor: pointer;
+    color: #3a3a3a;
+}
+
+#hint-container p {
+    font-size: 14px;
+    color: gray;
+    letter-spacing: 1px;
+}
+
+#hint-container i::after {
+    content: "Hint";
+    display: block;
+    font-size: 12px;
 }
