@@ -114,12 +114,16 @@ header h2 {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 
+    position: relative;
+    z-index: 1;
+
 }
 
-#game-prefferences button:hover{
+#game-prefferences button:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
+
 #game-prefferences img {
     height: 200px;
     float: right;
