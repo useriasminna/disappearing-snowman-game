@@ -74,18 +74,18 @@ header h2 {
 
 }
 
-#sound-control {
+.sound-control {
     margin: 0 auto;
     height: 20px;
     width: 100%;
     padding: 15px;
 }
 
-#sound-control i {
+.sound-control i {
     font-size: 30px;
 }
 
-#sound-control i:hover {
+.sound-control i:hover {
     cursor: pointer;
 }
 
