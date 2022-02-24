@@ -220,7 +220,8 @@ footer a {
 #upper-section {
     width: 100%;
     border: 2px solid #ecf7fd;
-    border-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: #ffffffbd;
 
@@ -230,6 +231,7 @@ footer a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 #cartoon-container {
@@ -365,4 +367,29 @@ footer a {
     content: "Hint";
     display: block;
     font-size: 12px;
+}
+
+#alphabet-container {
+    width: 100%;
+}
+
+#alphabet-container ul {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+
+    list-style-type: none;
+    text-align: center;
+}
+
+#alphabet-container li {
+    font-size: 21px;
+    text-transform: uppercase;
+    width: 24px;
+    padding: 4px 4px 0px 4px;
+    margin: 6px 2px 0px 2px;
+    background-color: #64c9ff;
+    border: 1px solid #41bdff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    color: white;
 }
