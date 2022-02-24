@@ -14,6 +14,11 @@ body {
     background: url("../images/background.jpg") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
+
+}
+
+body,
+button {
     font-family: 'Special Elite', cursive;
 
 }
