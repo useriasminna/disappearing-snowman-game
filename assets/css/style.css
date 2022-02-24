@@ -18,6 +18,16 @@ body {
 
 }
 
+#page-container {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+#content-wrap {
+    padding-bottom: 90px;
+}
+
 h1 {
     font-family: 'Bangers', cursive;
 }
@@ -130,13 +140,14 @@ header h2 {
     float: right;
     position: absolute;
     right: -4%;
-    top: 73%;
+    top: 77%;
 }
 
 footer {
     width: 100%;
-    height: 80px;
-    background-color: #3395dc;
+    height: 65px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
     position: absolute;
     bottom: 0%;
     z-index: -1;
@@ -163,15 +174,19 @@ footer li {
 }
 
 footer li:hover {
-    border: 2px solid #fff;
+    border: 2px solid #0761a3;
 }
 
 footer a {
-    color: white;
+    color: #0761a3;
     transition: 0.2s ease-out;
     font-size: 25px;
     position: relative;
     top: 15%;
+}
+
+#game-body {
+    background-attachment: unset;
 }
 
 #game-body header h2 {
@@ -188,11 +203,11 @@ footer a {
     background-color: #ffffff91;
     border-radius: 25px;
 
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
 
-    z-index: -2;
+    z-index: 1;
 
 
 }
