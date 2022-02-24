@@ -41,6 +41,10 @@ button {
 
 #content-wrap {
     padding-bottom: 90px;
+
+    position: relative;
+    z-index: -3;
+
 }
 
 h1 {
@@ -366,7 +370,7 @@ footer a {
     font-size: 23px;
     margin: 0 auto;
     color: #f19306;
-    transition: color 0.2s ease-in;
+    transition: color 0.1s ease-out;
 }
 
 #hint-container i:hover {
@@ -404,11 +408,16 @@ footer a {
     text-transform: uppercase;
     width: 24px;
     padding: 4px 4px 0px 4px;
-    margin: 6px 2px 0px 2px;
+    margin: 6px 5px 0px 5px;
     background-color: #64c9ff;
     border: 1px solid #41bdff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     color: white;
+}
+
+#alphabet-container li:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 #score-container {
@@ -438,6 +447,11 @@ footer a {
 #lowest-buttons-container button {
     margin-top: 15px;
 
+}
+
+#lowest-buttons-container button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 #lowest-buttons-container button:nth-child(1) {
