@@ -110,16 +110,14 @@ header h2 {
     list-style-type: none;
     margin: 20px auto;
     width: 78%;
-    background-color: #22b3e5ed;
     padding: 5px;
     color: white;
     font-weight: bold;
     letter-spacing: 2px;
     border-radius: 20px;
-    border: 1px solid dodgerblue;
     box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     text-transform: uppercase;
-    transition: 0.2s ease-out;
+    transition: 0.1s ease-out;
 
 }
 
@@ -127,6 +125,11 @@ header h2 {
     background-color: #77469b;
     border: 1px solid #522f6c;
     cursor: pointer;
+}
+
+.level-inactive {
+    background-color: #22b3e5ed;
+    border: 1px solid dodgerblue;
 }
 
 .level-active {
