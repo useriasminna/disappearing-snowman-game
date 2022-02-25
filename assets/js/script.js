@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     music.loop = true;
     let plays = 0;
     // MANIPULATE MUSIC ON SOUND CONTROL ICON CLICK
-    let soundControl = document.getElementsByClassName("sound-control")[0];
+    let soundControl = document.getElementById("sound-control");
     soundControl.addEventListener("click", function() {
         let icons = this.getElementsByTagName("div");
         if (plays === 0) {
@@ -44,7 +44,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let playButton = document.getElementById("game-prefferences").getElementsByTagName("button")[0];
     playButton.addEventListener("click", function() {
-        generateGameContent(activeLevelValue);
+        // DISPLAY WARNING IF DIFFICULTY IS NOT SELECTED
+        for (let level of levels) {
+            let active = 0;
+            if (level.classList.contains("level-active")) {
+                generateGameContent(activeLevelValue);
+                active = 1;
+            } else {
+                document.getElementById("level-warning").style.display = "block";
+            }
+            if (active === 1)
+                break;
+
+        }
+
     })
 
 
