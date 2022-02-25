@@ -28,7 +28,7 @@ button {
     font-weight: bold;
     padding: 10px 40px;
     font-size: 17px;
-    border: 1px solid #3a3a3a;
+    border: 1px solid #3a3a3acf;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -66,18 +66,19 @@ header h2 {
 
 }
 
-.sound-control {
-    margin: 0 auto;
-    height: 20px;
-    width: 100%;
+#sound-control {
+    left: 50%;
+    transform: translateX(-50%);
     padding: 15px;
+    position: absolute;
+    top: 105px;
 }
 
-.sound-control i {
+#sound-control i {
     font-size: 30px;
 }
 
-.sound-control i:hover {
+#sound-control i:hover {
     cursor: pointer;
 }
 
@@ -100,7 +101,6 @@ header h2 {
 
 #game-prefferences li {
     list-style-type: none;
-    margin: 20px auto;
     width: 78%;
     padding: 5px;
     color: white;
@@ -110,6 +110,16 @@ header h2 {
     box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     text-transform: uppercase;
     transition: 0.1s ease-out;
+
+}
+
+#game-prefferences li:not(:last-child) {
+    margin: 20px auto;
+
+}
+
+#game-prefferences li:last-child {
+    margin: 20px auto 10px;
 
 }
 
@@ -129,13 +139,25 @@ header h2 {
     border: 1px solid #522f6c;
 }
 
+#game-prefferences div {
+    height: 25px;
+}
+
+#level-warning {
+    font-size: 15px;
+    color: #d30707;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: none;
+}
+
 #game-prefferences button {
     color: #3a3a3a;
     background-color: #fff;
     position: relative;
     z-index: 1;
-
 }
+
 
 #game-prefferences button:hover {
     cursor: pointer;
