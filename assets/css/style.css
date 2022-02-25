@@ -39,20 +39,12 @@ button {
     z-index: 1;
 }
 
-#content-wrap {
-    padding-bottom: 90px;
-
-    position: relative;
-    z-index: -3;
-
-}
-
 h1 {
     font-family: 'Bangers', cursive;
 }
 
 header {
-    height: 10%;
+    height: 170px;
     padding: 30px 20px;
     text-align: center;
     background-image: linear-gradient(#fff 33%, #3395dc00);
@@ -89,7 +81,7 @@ header h2 {
     cursor: pointer;
 }
 
-.sound-inactive {
+.icon-inactive {
     display: none;
 }
 
@@ -155,7 +147,7 @@ header h2 {
     float: right;
     position: absolute;
     right: -4%;
-    top: 77%;
+    top: 74%;
 }
 
 footer {
