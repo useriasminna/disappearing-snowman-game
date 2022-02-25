@@ -12,49 +12,51 @@
 </head>
 
 <body>
-    <header>
-        <a href="index.html">
-            <h1>Disappearing Snowman</h1>
-        </a>
+    <div id="page-container">
+        <div id="content-wrap">
+            <header>
+                <a href="index.html">
+                    <h1>Disappearing Snowman</h1>
+                </a>
 
-        <h2>Another type of Hangman Game</h2>
-        <!-- SOUND CONTROL -->
-        <div id="home-sound" class="sound-control">
-            <div class="">
-                <i class="fas fa-volume-mute"></i>
-            </div>
-            <div class="sound-inactive">
-                <i class="fas fa-volume-up"></i>
-            </div>
+                <h2>Another type of Hangman Game</h2>
+                <!-- SOUND CONTROL -->
+                <div id="home-sound" class="sound-control">
+                    <div class="">
+                        <i class="fas fa-volume-mute"></i>
+                    </div>
+                    <div class="icon-inactive">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                </div>
+            </header>
+            <!-- GAME PREFFERENCES SECTION -->
+            <section id="game-section">
+                <div id="game-prefferences">
+                    <p>Chose game difficulty</p>
+                    <ul>
+                        <li class="level-inactive">Easy</li>
+                        <li class="level-inactive">Medium</li>
+                        <li class="level-inactive">Hard</li>
+                    </ul>
+                    <button class="btn" type="submit">PLAY</button>
+                    <img src="assets/images/home-snowman.png" alt="A cartoon with a smiling snowman">
+
+                </div>
+
+            </section>
         </div>
-    </header>
-    <!-- GAME PREFFERENCES SECTION -->
-    <section>
-        <div id="game-prefferences">
-            <p>Chose the game difficulty</p>
+        <footer>
+            <!-- SOCIAL MEDIA LINKS -->
             <ul>
-                <li class="level-inactive">Easy</li>
-                <li class="level-inactive">Medium</li>
-                <li class="level-inactive">Hard</li>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Link to facebook page"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Link to twitter page"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Link to instagram page"><i class="fab fa-instagram"></i></a></li>
             </ul>
-            <form action="game.html" method="GET">
-                <button class="btn" type="submit">PLAY</button>
-            </form>
-            <img src="assets/images/home-snowman.png" alt="A cartoon with a smiling snowman">
-
-        </div>
-
-    </section>
-    <footer>
-        <!-- SOCIAL MEDIA LINKS -->
-        <ul>
-            <li><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Link to facebook page"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Link to twitter page"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Link to instagram page"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-    </footer>
-    <script src="assets/js/script.js"></script>
-    <script src="https://kit.fontawesome.com/c8dffb0544.js" crossorigin="anonymous"></script>
+        </footer>
+        <script src="assets/js/script.js"></script>
+        <script src="https://kit.fontawesome.com/c8dffb0544.js" crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>
