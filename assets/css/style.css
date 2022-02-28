@@ -349,6 +349,7 @@ footer a {
     width: 80%;
     height: 40px;
     text-align: center;
+    color: #3a3a3ab8;
 }
 
 #level-container p:nth-child(1) {
@@ -356,7 +357,7 @@ footer a {
     margin-bottom: 5px;
 }
 
-#level {
+#level-container p:nth-child(2) {
     font-size: 19px;
     text-transform: uppercase;
     font-weight: bold;
@@ -369,12 +370,13 @@ footer a {
     margin: 10px 0px 15px;
 }
 
-#underscores {
-    font-size: 26px;
+#word-container p {
+    font-size: 24px;
     letter-spacing: 3px;
     line-height: 30px;
     overflow-wrap: break-word;
-
+    color: #3395dc;
+    font-weight: bold;
 }
 
 #hint-container {
@@ -422,7 +424,6 @@ footer a {
 
 #alphabet-container li {
     font-size: 21px;
-    text-transform: uppercase;
     width: 24px;
     padding: 4px 4px 0px 4px;
     margin: 6px 5px 0px 5px;
