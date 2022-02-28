@@ -90,10 +90,10 @@ function generateGameContent(activeLevelValue) {
                     <!-- RANDOM WORD UNDERSCORES CONTAINER -->
                     <div id="level-container">
                         <p>Difficulty:</p>
-                        <p id="level">${activeLevelValue}</p>
+                        <p>${activeLevelValue}</p>
                     </div>
                     <div id="word-container">
-                        <p id="underscores">_ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+                        <p>${generateRandomWordUnderscores(activeLevelValue)}</p>
                     </div>
                     <div id="hint-container">
                         <i class="fas fa-lightbulb"></i>
@@ -156,4 +156,80 @@ function generateGameContent(activeLevelValue) {
     document.getElementById("content-wrap").style.zIndex = "-3"
 
     document.getElementById("game-section").innerHTML = gameBody;
+}
+
+/**
+ * Returns the underscores string that matches the random number generated
+ *  depending on the level the user chose
+ */
+function generateRandomWordUnderscores(level) {
+    const easyWords = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug", "book", "jar",
+        "snake", "light", "tree", "lips", "apple", "slide", "socks", "smile", "swing", "coat", "shoe", "water", "heart", "hat",
+        "ocean", "kite", "dog", "mouth", "milk", "duck", "eyes", "skateboard", "bird", "boy", "apple", "person", "girl", "mouse",
+        "ball", "house", "star", "nose", "bed", "whale", "jacket", "shirt", "hippo", "beach", "egg", "face", "cookie", "cheese",
+        "ice cream", "drum", "circle", "spoon", "worm", "spider", "web", "bridge", "bone", "grapes", "bell", "jellyfish", "bunny",
+        "truck", "grass", "door", "monkey", "spider", "bread", "ears", "bowl", "bracelet", "alligator", "clock", "lollipop",
+        "moon", "doll", "orange", "ear", "basketball", "bike", "airplane", "inchworm", "seashell", "rocket", "cloud", "bear",
+        "corn", "chicken", "purse"
+    ];
+
+    const mediumWords = ["horse", "door", "song", "trip", "backbone", "round", "treasure", "garbage", "park",
+        "pirate", "ski", "state", "whistle", "palace", "baseball", "coal", "queen", "dominoes", "photograph", "computer",
+        "hockey", "aircraft", "hot dog", "salt", "pepper", "key", "iPad", "whisk", "frog", "lawnmower", "mattress", "pinwheel",
+        "cake", "circus", "battery", "mailman", "cowboy", "password", "bicycle", "skate", "electricity", "lightsaber",
+        "thief", "teapot", "deep", "spring", "nature", "shallow", "toast", "outside", "roller", "blading", "bowtie",
+        "half", "spare", "wax", "light", "bulb", "platypus", "music", "sailboat", "popsicle", "brain", "birthday",
+        "cake", "skirt", "knee", "pineapple", "tusk", "sprinkler", "money", "spool", "lighthouse", "doormat", "face",
+        "flute", "rug", "snowball", "purse", "owl", "gate", "suitcase", "stomach", "doghouse", "pajamas", "bathroom",
+        "scale", "peach", "newspaper", "watering can", "hook", "school", "beaver", "french fries", "beehive", "beach",
+        "artist", "flagpole", "camera", "hair dryer", "mushroom"
+    ];
+    const hardWords = ["snag", "jungle", "important", "mime", "peasant", "baggage", "hail", "clog", "pizza", "sauce",
+        "password", "scream", "newsletter", "dripping", "pharmacist", "catalog", "ringleader", "husband", "laser", "diagonal",
+        "comfy", "myth", "dorsal", "biscuit", "hydrogen", "macaroni", "rubber", "darkness", "yolk", "exercise", "vegetarian",
+        "shrew", "chestnut", "ditch", "wobble", "glitter", "neighborhood", "dizzy", "fireside", "retail", "drawback", "logo",
+        "fabric", "mirror", "barber", "jazz migrate", "drought", "commercial", "dashboard", "bargain", "double", "download",
+        "professor", "landscape", "vitamin", "half", "cardboard", "drip", "shampoo", "point", "time", "machine", "yardstick",
+        "think", "lace", "darts", "world", "avocado", "bleach", "shower", "curtain", "extension", "birthday", "sandbox",
+        "bruise", "quicksand", "gasoline", "pocket", "sponge", "bride", "zipper", "letter", "opener", "fiddle", "water",
+        "buffalo", "pilot", "brand", "pail", "baguette", "rib", "mascot", "fireman", "pole", "zoo", "sushi", "fizz",
+        "ceiling", "bald", "banister", "punk", "post office", "season", "chess", "puppet", "chime", "full", "koala", "dentist"
+    ];
+
+
+    let wordArray = level.toLowerCase();
+
+    let randomNumber;
+    let randomWord;
+
+    // GETS RANDOM WORD FROM ARRAY
+    if (wordArray === "easy") {
+
+        randomNumber = Math.floor(Math.random() * (9));
+        randomWord = easyWords[randomNumber];
+
+    } else if (wordArray === "medium") {
+
+        randomNumber = Math.floor(Math.random() * (mediumWords.length - 1));
+        randomWord = mediumWords[randomNumber];
+
+    } else {
+
+        randomNumber = Math.floor(Math.random() * (hardWords.length - 1));
+        randomWord = hardWords[randomNumber];
+
+    }
+
+    // GETS UNDERSCORES MATCHING RANDOM WORD
+    let wordUnderscores = "";
+
+    for (let char of randomWord) {
+        if (char === " ")
+            wordUnderscores += " ";
+        else
+            wordUnderscores += "_ "
+    }
+
+    return wordUnderscores;
+
 }
