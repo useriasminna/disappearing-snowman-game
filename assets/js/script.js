@@ -77,6 +77,7 @@ function generateGameContent(activeLevelValue) {
 
 
 
+    // CHANGE SUBTITLE
     document.getElementsByTagName("header")[0].getElementsByTagName("h2")[0].innerText = "Guess the word and help the snowman rezist the heat"
     // CHANGE BODY STYLE 
     document.body.style.backgroundAttachment = "unset";
@@ -86,11 +87,19 @@ function generateGameContent(activeLevelValue) {
     document.getElementById("content-wrap").style.position = "relative"
     document.getElementById("content-wrap").style.zIndex = "-3"
 
+    // ADD LEVEL VALUE
     document.getElementById("level-container").getElementsByTagName("p")[1].innerText = activeLevelValue;
-    document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateRandomWordUnderscores(activeLevelValue);
+
+    var checkedWords = [];
+    let randomWord = generateRandomWord(activeLevelValue);
+    document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
+
+    // ADD THE WORD IN THE LIST OF PLAYED WORDS
+    checkedWords.push(randomWord);
+    console.log(checkedWords);
 
     document.getElementById("change-word-btn").addEventListener("click", function() {
-        document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateRandomWordUnderscores(activeLevelValue)
+        changeRandomWord(activeLevelValue, checkedWords);
     });
 }
 
@@ -98,7 +107,7 @@ function generateGameContent(activeLevelValue) {
  * Returns the underscores string that matches the random number generated
  *  depending on the level the user chose
  */
-function generateRandomWordUnderscores(level) {
+function generateRandomWord(level, checkedWordsArray) {
     const easyWords = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug", "book", "jar",
         "snake", "light", "tree", "lips", "apple", "slide", "socks", "smile", "swing", "coat", "shoe", "water", "heart", "hat",
         "ocean", "kite", "dog", "mouth", "milk", "duck", "eyes", "skateboard", "bird", "boy", "apple", "person", "girl", "mouse",
@@ -141,7 +150,7 @@ function generateRandomWordUnderscores(level) {
     // GETS RANDOM WORD FROM ARRAY
     if (wordArray === "easy") {
 
-        randomNumber = Math.floor(Math.random() * (9));
+        randomNumber = Math.floor(Math.random() * (easyWords.length - 1));
         randomWord = easyWords[randomNumber];
 
     } else if (wordArray === "medium") {
@@ -156,17 +165,52 @@ function generateRandomWordUnderscores(level) {
 
     }
 
-    // GETS UNDERSCORES MATCHING RANDOM WORD
+    return randomWord;
+
+}
+
+
+/**
+ * Returns the underscores string that matches the word given as a parameter
+ */
+function generateUnderscores(word) {
+
     let wordUnderscores = "";
 
-    for (let char of randomWord) {
+    for (let char of word) {
         if (char === " ")
             wordUnderscores += " ";
         else
             wordUnderscores += "_ "
     }
 
-    console.log(randomWord);
     return wordUnderscores;
+
+}
+
+/**
+ * Replace the existing underscores with another generated from a random word that hasn't been played already
+ */
+function changeRandomWord(level, checkedWordsArray) {
+
+    let randomWord;
+    let exist;
+
+    // CHECK IF WORD ALREADY HAS BEEN PLAYED
+    do {
+        randomWord = generateRandomWord(level);
+        exist = 0;
+        for (word of checkedWordsArray) {
+            if (randomWord === word)
+                exist = 1;
+        }
+    } while (exist === 1)
+
+
+    document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
+
+    // ADD THE WORD IN THE LIST OF PLAYED WORDS
+    checkedWordsArray.push(randomWord);
+    console.log(checkedWordsArray)
 
 }
