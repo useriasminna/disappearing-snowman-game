@@ -336,6 +336,18 @@ footer a {
     right: 15%;
 }
 
+#melted1 {
+    display: none;
+}
+
+#melted2 {
+    display: none;
+}
+
+#melted3 {
+    display: none;
+}
+
 #hat {
     top: -9%;
     right: 10%;
@@ -355,6 +367,7 @@ footer a {
 #right-hand {
     top: 4%;
     right: 24%;
+
 }
 
 #level-container {
