@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let plays = 0;
     // MANIPULATE MUSIC ON SOUND CONTROL ICON CLICK
     let soundControl = document.getElementById("sound-control");
+    // ADD EVENT LISTENER FOR SOUND ICON
     soundControl.addEventListener("click", function() {
         let icons = this.getElementsByTagName("div");
         if (plays === 0) {
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     })
 
-
+    // ADD EVENT LISTENER FOR MENU DIFFICULTY ITEMS
     // CHANGE CLASS FOR LEVEL ITEMS WHEN CLICKED
     let activeLevelValue;
     let levels = document.getElementById("game-prefferences").getElementsByTagName("li");
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
-
+    // ADD EVENT LISTENER FOR PLAY BUTTIN
     let playButton = document.getElementById("game-prefferences").getElementsByTagName("button")[0];
     playButton.addEventListener("click", function() {
         // DISPLAY WARNING IF DIFFICULTY IS NOT SELECTED
@@ -69,6 +70,32 @@ document.addEventListener("DOMContentLoaded", function() {
  * Replace the initial menu from game section with the game content
  */
 function generateGameContent(activeLevelValue) {
+    const easyWords = ["cup", "ghost", "flower", "pie", "snowflake", "bug", "book", "jar", "light", "tree", "lips", "slide",
+        "smile", "swing", "coat", "shoe", "hat", "ocean", "kite", "milk", "skateboard", "boy", "apple", "person", "girl",
+        "ball", "house", "star", "bed", "jacket", "shirt", "hippo", "beach", "face", "cheese", "ice cream", "circle", "spoon",
+        "bridge", "grapes", "bell", "truck", "grass", "door", "bread", "bowl", "bracelet", "clock", "lollipop", "doll", "orange",
+        "ear", "basketball", "bike", "seashell", "cloud", "purse", "carrot", "pencil", "head", "lamp", "snowman", "chair", "leaf",
+        "bunk", "baby", "bus", "cherry", "branch", "robot"
+    ];
+
+    const mediumWords = ["song", "trip", "backbone", "round", "treasure", "garbage", "park", "pirate", "ski", "state", "whistle",
+        "palace", "coal", "queen", "dominoes", "photograph", "computer", "aircraft", "salt", "pepper", "key", "whisk", "lawnmower",
+        "mattress", "pinwheel", "cake", "circus", "battery", "mailman", "cowboy", "password", "bicycle", "skate", "lightsaber",
+        "thief", "teapot", "deep", "spring", "nature", "shallow", "toast", "outside", "roller", "bowtie", "half", "spare", "wax",
+        "light", "bulb", "platypus", "sailboat", "birthday", "skirt", "knee", "tusk", "sprinkler", "money", "spool", "lighthouse",
+        "doormat", "face", "flute", "rug", "snowball", "purse", "gate", "suitcase", "bathroom", "scale", "newspaper", "hook",
+        "school", "beaver", "beehive", "artist", "flagpole", "camera", "mushroom"
+    ];
+    const hardWords = ["snag", "jungle", "important", "mime", "peasant", "baggage", "hail", "clog", "pizza", "sauce", "password",
+        "scream", "newsletter", "pharmacist", "catalog", "ringleader", "husband", "diagonal", "comfy", "dorsal", "biscuit",
+        "macaroni", "rubber", "darkness", "yolk", "exercise", "vegetarian", "chestnut", "ditch", "wobble", "glitter",
+        "neighborhood", "dizzy", "fireside", "retail", "drawback", "fabric", "mirror", "barber", "jazz", "drought", "commercial",
+        "dashboard", "bargain", "double", "download", "professor", "landscape", "half", "cardboard", "drip", "shampoo", "point",
+        "time", "machine", "yardstick", "think", "lace", "darts", "world", "avocado", "bleach", "shower", "curtain", "extension",
+        "sandbox", "bruise", "quicksand", "pocket", "bride", "zipper", "letter", "opener", "fiddle", "buffalo", "pilot", "brand",
+        "pail", "baguette", "mascot", "fireman", "pole", "zoo", "sushi", "fizz", "ceiling", "bald", "banister", "punk",
+        "post office", "season", "chess", "chime", "full", "koala", "dentist"
+    ];
 
     // DISPLAY GAME CONTENT
     document.getElementById("game-prefferences").style.display = "none";
@@ -83,64 +110,45 @@ function generateGameContent(activeLevelValue) {
     document.body.style.backgroundAttachment = "unset";
 
     // STYLE CONTENT-WRAP DIV TO FIX THE FOOTER AT THE BOTTOM OF THE PAGE
-    document.getElementById("content-wrap").style.paddingBottom = "750px";
+    document.getElementById("content-wrap").style.paddingBottom = "780px";
     document.getElementById("content-wrap").style.position = "relative"
     document.getElementById("content-wrap").style.zIndex = "-3"
 
     // ADD LEVEL VALUE
     document.getElementById("level-container").getElementsByTagName("p")[1].innerText = activeLevelValue;
 
+    // ASSIGN RANDOM WORD UNDERSCORES AND HINT TO DOM ELEMENTS
     var checkedWords = [];
-    let randomWord = generateRandomWord(activeLevelValue);
+    let randomWord = generateRandomWord(activeLevelValue, easyWords, mediumWords, hardWords);
     document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
+    getHint(randomWord);
+
+    // ADD EVENT LISTENER FOR HINT
+    document.getElementById("hint-container").getElementsByTagName("i")[0].addEventListener("click", function() {
+
+
+        this.style.display = "none";
+        document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "block";
+
+
+    })
 
     // ADD THE WORD IN THE LIST OF PLAYED WORDS
     checkedWords.push(randomWord);
     console.log(checkedWords);
 
+    // ADD EVENT LISTENER FOR TRY ANOTHER WORD BUTTON
     document.getElementById("change-word-btn").addEventListener("click", function() {
-        changeRandomWord(activeLevelValue, checkedWords);
+        changeRandomWord(activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
     });
+
 }
 
 /**
  * Returns the underscores string that matches the random number generated
  *  depending on the level the user chose
  */
-function generateRandomWord(level, checkedWordsArray) {
-    const easyWords = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug", "book", "jar",
-        "snake", "light", "tree", "lips", "apple", "slide", "socks", "smile", "swing", "coat", "shoe", "water", "heart", "hat",
-        "ocean", "kite", "dog", "mouth", "milk", "duck", "eyes", "skateboard", "bird", "boy", "apple", "person", "girl", "mouse",
-        "ball", "house", "star", "nose", "bed", "whale", "jacket", "shirt", "hippo", "beach", "egg", "face", "cookie", "cheese",
-        "ice cream", "drum", "circle", "spoon", "worm", "spider", "web", "bridge", "bone", "grapes", "bell", "jellyfish", "bunny",
-        "truck", "grass", "door", "monkey", "spider", "bread", "ears", "bowl", "bracelet", "alligator", "clock", "lollipop",
-        "moon", "doll", "orange", "ear", "basketball", "bike", "airplane", "inchworm", "seashell", "rocket", "cloud", "bear",
-        "corn", "chicken", "purse"
-    ];
-
-    const mediumWords = ["horse", "door", "song", "trip", "backbone", "round", "treasure", "garbage", "park",
-        "pirate", "ski", "state", "whistle", "palace", "baseball", "coal", "queen", "dominoes", "photograph", "computer",
-        "hockey", "aircraft", "hot dog", "salt", "pepper", "key", "iPad", "whisk", "frog", "lawnmower", "mattress", "pinwheel",
-        "cake", "circus", "battery", "mailman", "cowboy", "password", "bicycle", "skate", "electricity", "lightsaber",
-        "thief", "teapot", "deep", "spring", "nature", "shallow", "toast", "outside", "roller", "blading", "bowtie",
-        "half", "spare", "wax", "light", "bulb", "platypus", "music", "sailboat", "popsicle", "brain", "birthday",
-        "cake", "skirt", "knee", "pineapple", "tusk", "sprinkler", "money", "spool", "lighthouse", "doormat", "face",
-        "flute", "rug", "snowball", "purse", "owl", "gate", "suitcase", "stomach", "doghouse", "pajamas", "bathroom",
-        "scale", "peach", "newspaper", "watering can", "hook", "school", "beaver", "french fries", "beehive", "beach",
-        "artist", "flagpole", "camera", "hair dryer", "mushroom"
-    ];
-    const hardWords = ["snag", "jungle", "important", "mime", "peasant", "baggage", "hail", "clog", "pizza", "sauce",
-        "password", "scream", "newsletter", "dripping", "pharmacist", "catalog", "ringleader", "husband", "laser", "diagonal",
-        "comfy", "myth", "dorsal", "biscuit", "hydrogen", "macaroni", "rubber", "darkness", "yolk", "exercise", "vegetarian",
-        "shrew", "chestnut", "ditch", "wobble", "glitter", "neighborhood", "dizzy", "fireside", "retail", "drawback", "logo",
-        "fabric", "mirror", "barber", "jazz migrate", "drought", "commercial", "dashboard", "bargain", "double", "download",
-        "professor", "landscape", "vitamin", "half", "cardboard", "drip", "shampoo", "point", "time", "machine", "yardstick",
-        "think", "lace", "darts", "world", "avocado", "bleach", "shower", "curtain", "extension", "birthday", "sandbox",
-        "bruise", "quicksand", "gasoline", "pocket", "sponge", "bride", "zipper", "letter", "opener", "fiddle", "water",
-        "buffalo", "pilot", "brand", "pail", "baguette", "rib", "mascot", "fireman", "pole", "zoo", "sushi", "fizz",
-        "ceiling", "bald", "banister", "punk", "post office", "season", "chess", "puppet", "chime", "full", "koala", "dentist"
-    ];
-
+function generateRandomWord(level, easyWords, mediumWords, hardWords) {
 
     let wordArray = level.toLowerCase();
 
@@ -150,17 +158,17 @@ function generateRandomWord(level, checkedWordsArray) {
     // GETS RANDOM WORD FROM ARRAY
     if (wordArray === "easy") {
 
-        randomNumber = Math.floor(Math.random() * (easyWords.length - 1));
+        randomNumber = Math.floor(Math.random() * (easyWords.length));
         randomWord = easyWords[randomNumber];
 
     } else if (wordArray === "medium") {
 
-        randomNumber = Math.floor(Math.random() * (mediumWords.length - 1));
+        randomNumber = Math.floor(Math.random() * (mediumWords.length));
         randomWord = mediumWords[randomNumber];
 
     } else {
 
-        randomNumber = Math.floor(Math.random() * (hardWords.length - 1));
+        randomNumber = Math.floor(Math.random() * (hardWords.length));
         randomWord = hardWords[randomNumber];
 
     }
@@ -189,28 +197,135 @@ function generateUnderscores(word) {
 }
 
 /**
- * Replace the existing underscores with another generated from a random word that hasn't been played already
+ * Replace the existing underscores string with another one generated from a random word 
+ * that hasn't been played already
  */
-function changeRandomWord(level, checkedWordsArray) {
+function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hardWords) {
+    let arrayLength;
 
-    let randomWord;
-    let exist;
+    if (level === "easy") {
+        arrayLength = easyWords.length;
+        console.log(arrayLength);
+    } else if (level === "medium") {
+        arrayLength = mediumWords.length;
+        console.log(arrayLength);
+    } else {
+        arrayLength = hardWords.length;
+        console.log(arrayLength);
+    }
 
-    // CHECK IF WORD ALREADY HAS BEEN PLAYED
-    do {
-        randomWord = generateRandomWord(level);
-        exist = 0;
-        for (word of checkedWordsArray) {
-            if (randomWord === word)
-                exist = 1;
+    // IF ALL THE WORDS HAVE BEEN PLAYED DISPLAY MESSAGE
+    if (checkedWordsArray.length === arrayLength) {
+        document.getElementById("hint-container").getElementsByTagName("i")[0].style.display = "none";
+        document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "none";
+        document.getElementById("hint-container").getElementsByTagName("p")[1].style.display = "block";
+        document.getElementById("hint-container").getElementsByTagName("p")[1].innerText = "Sorry, there are no more words for this level";
+
+    } else {
+
+        // SET HINT ELEMENTS TO INITIAL STYLE
+        document.getElementById("hint-container").getElementsByTagName("i")[0].style.display = "block";
+        document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "none";
+
+        let randomWord;
+        let exist;
+        // CHECK IF WORD ALREADY EXISTS IN THE PLAYED WORDS ARRAY
+        do {
+
+            randomWord = generateRandomWord(level, easyWords, mediumWords, hardWords);
+            exist = 0;
+            for (word of checkedWordsArray) {
+                if (randomWord === word)
+                    exist = 1;
+            }
+        } while (exist === 1)
+
+        // ASSIGN TO THE PROPPER ELEMENT IN THE DOM THE MATCHING UNDERSCORES STRING
+        document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
+
+        // UPDATE THE HINT VALUE FOR THE NEW WORD CHOSEN
+        getHint(randomWord)
+
+        // ADD THE WORD IN THE LIST OF PLAYED WORDS
+        checkedWordsArray.push(randomWord);
+        console.log(checkedWordsArray)
+
+    }
+
+
+
+}
+
+var data = " ";
+
+/**
+ * Makes an API request whith a method and url given as parameters
+ */
+function makeAPIRequest(method, url) {
+    return new Promise((resolve, reject) => {
+        const req = new XMLHttpRequest()
+        req.open(method, url)
+        req.send()
+        req.onload = function() {
+            data = JSON.parse(req.responseText)
+            if (req.status >= 200 && req.status < 300) {
+                console.log('Request done succesfully')
+                resolve(data)
+            } else {
+                reject(new Error(req.responseText))
+            }
         }
-    } while (exist === 1)
 
 
-    document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
+    })
+}
 
-    // ADD THE WORD IN THE LIST OF PLAYED WORDS
-    checkedWordsArray.push(randomWord);
-    console.log(checkedWordsArray)
+var hint;
+
+/**
+ * Gets the right definition for the random word from Merriam-Webster Dictionary API 
+ * and assign it as a hint for the word
+ */
+function getHint(word) {
+
+    let definitions = [];
+    makeAPIRequest('GET', "https://www.dictionaryapi.com/api/v3/references/sd4/json/" + word + "?key=4f833322-2eb0-44cf-87d4-cc9c0526e0c9")
+        .then(response => {
+            console.log(data)
+            for (option of data) {
+                for (def of option.shortdef) {
+                    // EXCLUDE THE PART OF THE DEFINITION THAT COMES AFTER '.', ';' OR '-'
+                    if (def.includes("."))
+                        def = def.substr(0, def.indexOf('.'));
+                    else if (def.includes(";"))
+                        def = def.substr(0, def.indexOf(';'));
+                    else if (def.includes("-"))
+                        def = def.substr(0, def.indexOf('-'));
+
+                    // EXCLUDE BRACES AND CONTENT BETWEEN THEM FROM THE DEFINITION
+                    if (def.includes("(") && def.includes(")")) {
+                        def = def.substr(0, def.indexOf('(')) + def.substr(def.indexOf(')') + 2, def.length)
+                    }
+
+                    // CAPITALIZE FIRST LETTER
+                    definitions.push(def.charAt(0).toUpperCase() + def.slice(1));
+
+                }
+            }
+            // console.log(definitions)
+            for (let definition of definitions) {
+                // MEMORIZE ONLY THE DEFINITION THAT DOES NOT CONTAIN THE WORD
+                if (!(definition.includes(" " + word + " ")) && !(definition.includes(" " + word)) && !(definition.includes(word + " ")) && definition.length > 10) {
+                    hint = definition;
+                    break;
+                }
+
+            }
+
+            // ASSIGN THE HINT VALUE TO THE RIGHT ELEMENT IN THE DOM
+            document.getElementById("hint-container").getElementsByTagName("p")[0].innerText = hint;
+
+        })
+
 
 }
