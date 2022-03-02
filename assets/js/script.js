@@ -383,6 +383,7 @@ function checkLife() {
 
     if (lifePercentage > 0) {
         document.getElementById("snowman-life").innerText = parseInt(lifePercentage) - 20;
+        updateSnowman(parseInt(document.getElementById("snowman-life").innerText));
 
         if (parseInt(document.getElementById("snowman-life").innerText) === 0)
             updateScore(0);
@@ -400,5 +401,25 @@ function updateScore(value) {
     } else {
         let existingFailure = document.getElementById("failure").innerText;
         document.getElementById("failure").innerText = parseInt(existingFailure) + 1;
+    }
+}
+
+function updateSnowman(lifeValue) {
+    if (lifeValue === 80) {
+        document.getElementById("right-hand").style.transform = "translate(-10px, 50px)";
+    } else if (lifeValue === 60) {
+        document.getElementById("left-hand").style.transform = "translate(10px, 50px)";
+    } else if (lifeValue === 40) {
+        document.getElementById("hat").style.transform = "translate(20px, 75px)";
+        document.getElementById("melted0").style.display = "none";
+        document.getElementById("melted1").style.display = "block";
+
+    } else if (lifeValue === 20) {
+        document.getElementById("nose").style.transform = "translate(20px, 70px)";
+        document.getElementById("melted1").style.display = "none";
+        document.getElementById("melted2").style.display = "block";
+    } else {
+        document.getElementById("melted2").style.display = "none";
+        document.getElementById("melted3").style.display = "block";
     }
 }
