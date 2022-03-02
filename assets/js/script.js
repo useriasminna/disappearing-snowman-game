@@ -119,9 +119,9 @@ function generateGameContent(activeLevelValue) {
 
     // ASSIGN RANDOM WORD UNDERSCORES AND HINT TO DOM ELEMENTS
     var checkedWords = [];
-    let randomWord = generateRandomWord(activeLevelValue, easyWords, mediumWords, hardWords);
-    document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
-    getHint(randomWord);
+    var actualRandomWord = generateRandomWord(activeLevelValue, easyWords, mediumWords, hardWords);
+    document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(actualRandomWord);
+    getHint(actualRandomWord);
 
     // ADD EVENT LISTENER FOR HINT
     document.getElementById("hint-container").getElementsByTagName("i")[0].addEventListener("click", function() {
@@ -134,7 +134,7 @@ function generateGameContent(activeLevelValue) {
     })
 
     // ADD THE WORD IN THE LIST OF PLAYED WORDS
-    checkedWords.push(randomWord);
+    checkedWords.push(actualRandomWord);
     console.log(checkedWords);
 
     // ADD EVENT LISTENER FOR TRY ANOTHER WORD BUTTON
@@ -142,6 +142,15 @@ function generateGameContent(activeLevelValue) {
         changeRandomWord(activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
     });
 
+    let letters = document.getElementById("alphabet-container").getElementsByTagName("li");
+    for (let letter of letters) {
+        letter.addEventListener("click", function() {
+            this.style.opacity = "0";
+            // console.log("da")
+            handleChosenLetter(this.innerText, checkedWords);
+
+        })
+    }
 }
 
 /**
@@ -189,7 +198,7 @@ function generateUnderscores(word) {
         if (char === " ")
             wordUnderscores += " ";
         else
-            wordUnderscores += "_ "
+            wordUnderscores += "_"
     }
 
     return wordUnderscores;
@@ -227,27 +236,26 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
         document.getElementById("hint-container").getElementsByTagName("i")[0].style.display = "block";
         document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "none";
 
-        let randomWord;
         let exist;
         // CHECK IF WORD ALREADY EXISTS IN THE PLAYED WORDS ARRAY
         do {
 
-            randomWord = generateRandomWord(level, easyWords, mediumWords, hardWords);
+            actualRandomWord = generateRandomWord(level, easyWords, mediumWords, hardWords);
             exist = 0;
             for (word of checkedWordsArray) {
-                if (randomWord === word)
+                if (actualRandomWord === word)
                     exist = 1;
             }
         } while (exist === 1)
 
         // ASSIGN TO THE PROPPER ELEMENT IN THE DOM THE MATCHING UNDERSCORES STRING
-        document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(randomWord);
+        document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(actualRandomWord);
 
         // UPDATE THE HINT VALUE FOR THE NEW WORD CHOSEN
-        getHint(randomWord)
+        getHint(actualRandomWord)
 
         // ADD THE WORD IN THE LIST OF PLAYED WORDS
-        checkedWordsArray.push(randomWord);
+        checkedWordsArray.push(actualRandomWord);
         console.log(checkedWordsArray)
 
     }
@@ -257,11 +265,11 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
 }
 
 var data = " ";
-
 /**
  * Makes an API request whith a method and url given as parameters
  */
 function makeAPIRequest(method, url) {
+
     return new Promise((resolve, reject) => {
         const req = new XMLHttpRequest()
         req.open(method, url)
@@ -280,14 +288,14 @@ function makeAPIRequest(method, url) {
     })
 }
 
-var hint;
+
 
 /**
  * Gets the right definition for the random word from Merriam-Webster Dictionary API 
  * and assign it as a hint for the word
  */
 function getHint(word) {
-
+    var hint;
     let definitions = [];
     makeAPIRequest('GET', "https://www.dictionaryapi.com/api/v3/references/sd4/json/" + word + "?key=4f833322-2eb0-44cf-87d4-cc9c0526e0c9")
         .then(response => {
@@ -328,4 +336,69 @@ function getHint(word) {
         })
 
 
+}
+
+
+/**
+ * Check if the letter chosen by user is included in the random word.
+ * If it is correct it updates the word string otherwise it manipulates the snowman life to decrease.
+ * When word is complete it displays a message 
+ */
+function handleChosenLetter(letterValue, wordsArray) {
+
+    // GETS THE ACTUAL WORD FROM THE PLAYED WORD ARRAY
+    let word = wordsArray[wordsArray.length - 1]
+
+    // GETS THE WORD STRING DISPLAYED FOR THE USER
+    let gameWord = document.getElementById("word-container").getElementsByTagName("p")[0].innerText;
+
+    // UPDATES THE WORD'S STRING BY INCLUDING THE CHOSEN LETTER IF CORRECT
+    if (word.includes(letterValue)) {
+
+        let wordUpdate = "";
+        for (let i = 0; i < word.length; i++) {
+            if (word[i] === letterValue)
+                wordUpdate += letterValue;
+            else
+                wordUpdate += gameWord[i];
+
+        }
+
+        document.getElementById("word-container").getElementsByTagName("p")[0].innerText = wordUpdate;
+        if (word === wordUpdate) {
+            updateScore(1);
+        }
+
+
+    } else {
+        checkLife();
+    }
+}
+
+/**
+ * Updates the snowman life value and displays a message if snowman's life ended
+ */
+function checkLife() {
+    lifePercentage = document.getElementById("snowman-life").innerText;
+
+    if (lifePercentage > 0) {
+        document.getElementById("snowman-life").innerText = parseInt(lifePercentage) - 20;
+
+        if (parseInt(document.getElementById("snowman-life").innerText) === 0)
+            updateScore(0);
+    }
+}
+
+/**
+ * Updates the score depending on the parameter.
+ * It either updates Succes or Failure value
+ */
+function updateScore(value) {
+    if (value === 1) {
+        let existingSucces = document.getElementById("succes").innerText;
+        document.getElementById("succes").innerText = parseInt(existingSucces) + 1;
+    } else {
+        let existingFailure = document.getElementById("failure").innerText;
+        document.getElementById("failure").innerText = parseInt(existingFailure) + 1;
+    }
 }
