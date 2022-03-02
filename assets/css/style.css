@@ -378,8 +378,8 @@ footer a {
 
 #word-container {
     padding: 0px 32px;
-
-    margin: 10px 0px 15px;
+    height: 60px;
+    margin: 10px 0px;
 }
 
 #word-container p {
@@ -393,6 +393,7 @@ footer a {
 
 #hint-container {
     width: 80%;
+    height: 50px;
     text-align: center;
     margin-bottom: 15px;
 }
@@ -409,10 +410,20 @@ footer a {
     color: #3a3a3a;
 }
 
-#hint-container p {
-    font-size: 14px;
+#hint-container p:nth-child(2) {
+    display: none;
+    font-size: 13px;
     color: gray;
     letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+#hint-container p:nth-child(3) {
+    display: none;
+    font-size: 14px;
+    color: rgb(172, 8, 8);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 #hint-container i::after {
