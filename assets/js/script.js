@@ -11,16 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if (plays === 0) {
             music.play();
             plays = 1;
-            icons[0].classList.toggle('icon-inactive')
-            icons[1].classList.toggle('icon-inactive')
+            icons[0].classList.toggle('icon-inactive');
+            icons[1].classList.toggle('icon-inactive');
         } else {
-            music.pause()
+            music.pause();
             plays = 0;
-            icons[0].classList.toggle('icon-inactive')
-            icons[1].classList.toggle('icon-inactive')
+            icons[0].classList.toggle('icon-inactive');
+            icons[1].classList.toggle('icon-inactive');
         }
 
-    })
+    });
 
     // ADD EVENT LISTENER FOR MENU DIFFICULTY ITEMS
     // CHANGE CLASS FOR LEVEL ITEMS WHEN CLICKED
@@ -28,18 +28,18 @@ document.addEventListener("DOMContentLoaded", function() {
     let levels = document.getElementById("game-prefferences").getElementsByTagName("li");
     for (let level of levels) {
         level.addEventListener("click", function() {
-            this.classList.remove("level-inactive")
+            this.classList.remove("level-inactive");
             this.classList.add("level-active");
             activeLevelValue = this.innerText.toLowerCase();
 
             // FOR EACH LEVEL THAT IS NOT ACTIVE DELETE ACTIVE CLASS
             for (level of levels) {
                 if (level !== this && level.classList.contains("level-active")) {
-                    level.classList.remove("level-active")
+                    level.classList.remove("level-active");
                     level.classList.add("level-inactive");
                 }
             }
-        })
+        });
     }
 
     // ADD EVENT LISTENER FOR PLAY BUTTIN
@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
-    })
+    });
 
 
-})
+});
 
 
 
@@ -105,21 +105,21 @@ function generateGameContent(activeLevelValue) {
 
 
     // CHANGE SUBTITLE
-    document.getElementsByTagName("header")[0].getElementsByTagName("h2")[0].innerText = "Guess the word and help the snowman rezist the heat"
+    document.getElementsByTagName("header")[0].getElementsByTagName("h2")[0].innerText = "Guess the word and help the snowman rezist the heat";
     // CHANGE BODY STYLE 
     document.body.style.backgroundAttachment = "unset";
 
     // STYLE CONTENT-WRAP DIV TO FIX THE FOOTER AT THE BOTTOM OF THE PAGE
     document.getElementById("content-wrap").style.paddingBottom = "780px";
-    document.getElementById("content-wrap").style.position = "relative"
-    document.getElementById("content-wrap").style.zIndex = "-3"
+    document.getElementById("content-wrap").style.position = "relative";
+    document.getElementById("content-wrap").style.zIndex = "-3";
 
     // ADD LEVEL VALUE
     document.getElementById("level-container").getElementsByTagName("p")[1].innerText = activeLevelValue;
 
     // ASSIGN RANDOM WORD UNDERSCORES AND HINT TO DOM ELEMENTS
     var checkedWords = [];
-    var actualRandomWord = generateRandomWord(activeLevelValue, easyWords, mediumWords, hardWords);
+    let actualRandomWord = generateRandomWord(activeLevelValue, easyWords, mediumWords, hardWords);
     document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(actualRandomWord);
     getHint(actualRandomWord);
 
@@ -131,7 +131,7 @@ function generateGameContent(activeLevelValue) {
         document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "block";
 
 
-    })
+    });
 
     // ADD THE WORD IN THE LIST OF PLAYED WORDS
     checkedWords.push(actualRandomWord);
@@ -147,9 +147,9 @@ function generateGameContent(activeLevelValue) {
         letter.addEventListener("click", function() {
             this.style.opacity = "0";
             // console.log("da")
-            handleChosenLetter(this.innerText, checkedWords);
+            handleChosenLetter(this.innerText, activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
 
-        })
+        });
     }
 }
 
@@ -198,7 +198,7 @@ function generateUnderscores(word) {
         if (char === " ")
             wordUnderscores += " ";
         else
-            wordUnderscores += "_"
+            wordUnderscores += "_";
     }
 
     return wordUnderscores;
@@ -237,26 +237,27 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
         document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "none";
 
         let exist;
+        let actualRandomWord
         // CHECK IF WORD ALREADY EXISTS IN THE PLAYED WORDS ARRAY
         do {
 
             actualRandomWord = generateRandomWord(level, easyWords, mediumWords, hardWords);
             exist = 0;
-            for (word of checkedWordsArray) {
+            for (let word of checkedWordsArray) {
                 if (actualRandomWord === word)
                     exist = 1;
             }
-        } while (exist === 1)
+        } while (exist === 1);
 
         // ASSIGN TO THE PROPPER ELEMENT IN THE DOM THE MATCHING UNDERSCORES STRING
         document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(actualRandomWord);
 
         // UPDATE THE HINT VALUE FOR THE NEW WORD CHOSEN
-        getHint(actualRandomWord)
+        getHint(actualRandomWord);
 
         // ADD THE WORD IN THE LIST OF PLAYED WORDS
         checkedWordsArray.push(actualRandomWord);
-        console.log(checkedWordsArray)
+        console.log(checkedWordsArray);
 
     }
 
@@ -271,21 +272,21 @@ var data = " ";
 function makeAPIRequest(method, url) {
 
     return new Promise((resolve, reject) => {
-        const req = new XMLHttpRequest()
-        req.open(method, url)
-        req.send()
+        const req = new XMLHttpRequest();
+        req.open(method, url);
+        req.send();
         req.onload = function() {
-            data = JSON.parse(req.responseText)
+            data = JSON.parse(req.responseText);
             if (req.status >= 200 && req.status < 300) {
-                console.log('Request done succesfully')
-                resolve(data)
+                console.log('Request done succesfully');
+                resolve(data);
             } else {
-                reject(new Error(req.responseText))
+                reject(new Error(req.responseText));
             }
-        }
+        };
 
 
-    })
+    });
 }
 
 
@@ -299,9 +300,9 @@ function getHint(word) {
     let definitions = [];
     makeAPIRequest('GET', "https://www.dictionaryapi.com/api/v3/references/sd4/json/" + word + "?key=4f833322-2eb0-44cf-87d4-cc9c0526e0c9")
         .then(response => {
-            console.log(data)
-            for (option of data) {
-                for (def of option.shortdef) {
+            console.log(data);
+            for (let option of data) {
+                for (let def of option.shortdef) {
                     // EXCLUDE THE PART OF THE DEFINITION THAT COMES AFTER '.', ';' OR '-'
                     if (def.includes("."))
                         def = def.substr(0, def.indexOf('.'));
@@ -312,7 +313,7 @@ function getHint(word) {
 
                     // EXCLUDE BRACES AND CONTENT BETWEEN THEM FROM THE DEFINITION
                     if (def.includes("(") && def.includes(")")) {
-                        def = def.substr(0, def.indexOf('(')) + def.substr(def.indexOf(')') + 2, def.length)
+                        def = def.substr(0, def.indexOf('(')) + def.substr(def.indexOf(')') + 2, def.length);
                     }
 
                     // CAPITALIZE FIRST LETTER
@@ -333,7 +334,7 @@ function getHint(word) {
             // ASSIGN THE HINT VALUE TO THE RIGHT ELEMENT IN THE DOM
             document.getElementById("hint-container").getElementsByTagName("p")[0].innerText = hint;
 
-        })
+        });
 
 
 }
@@ -344,10 +345,10 @@ function getHint(word) {
  * If it is correct it updates the word string otherwise it manipulates the snowman life to decrease.
  * When word is complete it displays a message 
  */
-function handleChosenLetter(letterValue, wordsArray) {
+function handleChosenLetter(letterValue, level, wordsArray, easyWords, mediumWords, hardWords) {
 
     // GETS THE ACTUAL WORD FROM THE PLAYED WORD ARRAY
-    let word = wordsArray[wordsArray.length - 1]
+    let word = wordsArray[wordsArray.length - 1];
 
     // GETS THE WORD STRING DISPLAYED FOR THE USER
     let gameWord = document.getElementById("word-container").getElementsByTagName("p")[0].innerText;
@@ -367,6 +368,7 @@ function handleChosenLetter(letterValue, wordsArray) {
         document.getElementById("word-container").getElementsByTagName("p")[0].innerText = wordUpdate;
         if (word === wordUpdate) {
             updateScore(1);
+            displayModal(1, level, wordsArray, easyWords, mediumWords, hardWords);
         }
 
 
@@ -379,7 +381,7 @@ function handleChosenLetter(letterValue, wordsArray) {
  * Updates the snowman life value and displays a message if snowman's life ended
  */
 function checkLife() {
-    lifePercentage = document.getElementById("snowman-life").innerText;
+    let lifePercentage = document.getElementById("snowman-life").innerText;
 
     if (lifePercentage > 0) {
         document.getElementById("snowman-life").innerText = parseInt(lifePercentage) - 20;
@@ -392,18 +394,22 @@ function checkLife() {
 
 /**
  * Updates the score depending on the parameter.
- * It either updates Succes or Failure value
+ * It either updates Success or Failure value
  */
 function updateScore(value) {
     if (value === 1) {
-        let existingSucces = document.getElementById("succes").innerText;
-        document.getElementById("succes").innerText = parseInt(existingSucces) + 1;
+        let existingSuccess = document.getElementById("success").innerText;
+        document.getElementById("success").innerText = parseInt(existingSuccess) + 1;
     } else {
         let existingFailure = document.getElementById("failure").innerText;
         document.getElementById("failure").innerText = parseInt(existingFailure) + 1;
     }
 }
 
+
+/**
+ * Updates the image of the snowman depending on the life left
+ */
 function updateSnowman(lifeValue) {
     if (lifeValue === 80) {
         document.getElementById("right-hand").style.transform = "translate(-10px, 50px)";
@@ -421,5 +427,35 @@ function updateSnowman(lifeValue) {
     } else {
         document.getElementById("melted2").style.display = "none";
         document.getElementById("melted3").style.display = "block";
+    }
+}
+
+
+/**
+ * Displays modal and its elements depending on the first paremeter which sets success or failure case.
+ * It adds click event listener to modal elements. 
+ */
+function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWords) {
+
+    // DISPLAYS MODAL AND ADD EVENT LISTENERS
+    document.getElementById("myModal").style.display = "block";
+    document.getElementById("modal-next-word").addEventListener("click", function() {
+        changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords)
+        document.getElementById("myModal").style.display = "none";
+    })
+    document.getElementById("modal-new-game").addEventListener("click", function() {
+        window.location.href = "index.html";
+        document.getElementById("myModal").style.display = "none";
+
+    })
+
+    // DISPLAYS SUCCES OR FAILURE ELEMENTS
+    if (value === 1) {
+        document.getElementById("modal-message").innerText = "Yuhuuu! \nYou saved the snowman";
+        document.getElementById("success-image").style.display = "block";
+
+    } else {
+        document.getElementById("modal-message").innerText = "Oh,no... \nThe snowman melted";
+        document.getElementById("failure-image").style.display = "block";
     }
 }
