@@ -23,6 +23,7 @@ button {
 
 }
 
+/* CLASS FOR ALL BUTONS */
 .btn {
     width: fit-content;
     font-weight: bold;
@@ -43,6 +44,7 @@ h1 {
     font-family: 'Bangers', cursive;
 }
 
+/* HEADER */
 header {
     height: 170px;
     padding: 30px 20px;
@@ -66,6 +68,7 @@ header h2 {
 
 }
 
+/* HEADER SOUND ICON CONTAINER */
 #sound-control {
     left: 50%;
     transform: translateX(-50%);
@@ -86,10 +89,12 @@ header h2 {
     display: none;
 }
 
+/* CONTAINER FOR GAME CONTENT */
 #game-section {
     position: relative;
 }
 
+/* GAME CONTAINER DISPLAYED AFTER PLAY BUTTON CLICKED */
 #game-elements {
     opacity: 0;
     position: absolute;
@@ -99,6 +104,7 @@ header h2 {
     contain: content;
 }
 
+/* GAME INITIAL MENU */
 #game-prefferences {
     width: 90%;
     height: 300px;
@@ -155,6 +161,7 @@ header h2 {
     height: 25px;
 }
 
+/* WARNING DISPLAYED WHEN LEVEL IS NOT SELECTED */
 #level-warning {
     font-size: 15px;
     color: #d30707;
@@ -163,6 +170,7 @@ header h2 {
     display: none;
 }
 
+/* PLAY BUTTON */
 #game-prefferences button {
     color: #3a3a3a;
     background-color: #fff;
@@ -184,6 +192,7 @@ header h2 {
     top: 74%;
 }
 
+/* FOOTER */
 footer {
     width: 100%;
     height: 65px;
@@ -226,14 +235,7 @@ footer a {
     top: 15%;
 }
 
-#game-body {
-    background-attachment: unset;
-}
-
-#game-body header h2 {
-    margin-bottom: 0px;
-}
-
+/* CONTAINER FOR GAME ELEMENTS */
 #game-area {
     width: 90%;
 
@@ -253,6 +255,7 @@ footer a {
 
 }
 
+/* CONTAINER FOR UPPER ELEMENTS */
 #upper-section {
     width: 100%;
     border: 2px solid #ecf7fd;
@@ -270,6 +273,7 @@ footer a {
     margin-bottom: 5px;
 }
 
+/* CONTAINER FOR IMAGES */
 .cartoon-container {
     width: 100%;
     height: 205px;
@@ -300,6 +304,7 @@ footer a {
     animation-direction: alternate;
 }
 
+/* ANIMATION TO INFINITE ROTATE THE SUN BY 10 DEG */
 @keyframes sun {
     0% {
         transform: rotateZ(0);
@@ -310,6 +315,7 @@ footer a {
     }
 }
 
+/* CONTAINER FOR SNOWMAN PARTS POSITIONED TO MAKE A COMPLETE SNOWMAN */
 .melting-snowman-container {
     width: 235px;
     height: 220px;
@@ -368,9 +374,9 @@ footer a {
 #right-hand {
     top: 4%;
     right: 24%;
-
 }
 
+/* CONTAINER FOR DIFFICULTY  */
 #level-container {
     width: 80%;
     height: 40px;
@@ -390,6 +396,7 @@ footer a {
     letter-spacing: 2px;
 }
 
+/* CONTAINER FOR THE RANDOM WORD THAT HAS TO BE GUESSED */
 #word-container {
     padding: 0px 32px;
     height: 60px;
@@ -405,6 +412,7 @@ footer a {
     font-weight: bold;
 }
 
+/* CONTAINER FOR THE RANDOM WORD'S HINT */
 #hint-container {
     width: 80%;
     height: 50px;
@@ -446,6 +454,7 @@ footer a {
     font-size: 12px;
 }
 
+/* CONTAINER FOR ALPHABET LETTERS LIST */
 #alphabet-container {
     width: 100%;
 }
@@ -475,6 +484,7 @@ footer a {
     transform: scale(1.1);
 }
 
+/* CONTAINER FOR GAME SCORE  */
 #score-container {
     width: 90%;
 
@@ -492,6 +502,7 @@ footer a {
     font-weight: bold;
 }
 
+/* CONTAINER FOR TRY ANOTHER ONE AND START NEW GAME BUTTONS */
 #lowest-buttons-container {
     width: 100%;
     display: flex;
@@ -521,6 +532,7 @@ footer a {
     color: white;
 }
 
+/* MODAL */
 .modal {
     display: none;
     position: fixed;
@@ -584,6 +596,7 @@ footer a {
     display: none;
     height: 130px;
     right: 30%;
+    top: 13%;
 
 }
 
