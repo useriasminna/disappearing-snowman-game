@@ -214,13 +214,10 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
 
     if (level === "easy") {
         arrayLength = easyWords.length;
-        console.log(arrayLength);
     } else if (level === "medium") {
         arrayLength = mediumWords.length;
-        console.log(arrayLength);
     } else {
         arrayLength = hardWords.length;
-        console.log(arrayLength);
     }
 
     // IF ALL THE WORDS HAVE BEEN PLAYED DISPLAY MESSAGE
@@ -232,9 +229,7 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
 
     } else {
 
-        // SET HINT ELEMENTS TO INITIAL STYLE
-        document.getElementById("hint-container").getElementsByTagName("i")[0].style.display = "block";
-        document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "none";
+        refreshGame();
 
         let exist;
         let actualRandomWord
@@ -300,7 +295,6 @@ function getHint(word) {
     let definitions = [];
     makeAPIRequest('GET', "https://www.dictionaryapi.com/api/v3/references/sd4/json/" + word + "?key=4f833322-2eb0-44cf-87d4-cc9c0526e0c9")
         .then(response => {
-            console.log(data);
             for (let option of data) {
                 for (let def of option.shortdef) {
                     // EXCLUDE THE PART OF THE DEFINITION THAT COMES AFTER '.', ';' OR '-'
@@ -321,7 +315,6 @@ function getHint(word) {
 
                 }
             }
-            // console.log(definitions)
             for (let definition of definitions) {
                 // MEMORIZE ONLY THE DEFINITION THAT DOES NOT CONTAIN THE WORD
                 if (!(definition.includes(" " + word + " ")) && !(definition.includes(" " + word)) && !(definition.includes(word + " ")) && definition.length > 10) {
@@ -373,22 +366,24 @@ function handleChosenLetter(letterValue, level, wordsArray, easyWords, mediumWor
 
 
     } else {
-        checkLife();
+        checkLife(level, wordsArray, easyWords, mediumWords, hardWords);
     }
 }
 
 /**
- * Updates the snowman life value and displays a message if snowman's life ended
+ * Updates the snowman life value and opens a modal if snowman's life ended
  */
-function checkLife() {
+function checkLife(level, wordsArray, easyWords, mediumWords, hardWords) {
     let lifePercentage = document.getElementById("snowman-life").innerText;
 
     if (lifePercentage > 0) {
         document.getElementById("snowman-life").innerText = parseInt(lifePercentage) - 20;
         updateSnowman(parseInt(document.getElementById("snowman-life").innerText));
 
-        if (parseInt(document.getElementById("snowman-life").innerText) === 0)
+        if (parseInt(document.getElementById("snowman-life").innerText) === 0) {
             updateScore(0);
+            displayModal(0, level, wordsArray, easyWords, mediumWords, hardWords)
+        }
     }
 }
 
@@ -403,6 +398,7 @@ function updateScore(value) {
     } else {
         let existingFailure = document.getElementById("failure").innerText;
         document.getElementById("failure").innerText = parseInt(existingFailure) + 1;
+
     }
 }
 
@@ -437,17 +433,31 @@ function updateSnowman(lifeValue) {
  */
 function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWords) {
 
-    // DISPLAYS MODAL AND ADD EVENT LISTENERS
+    // DISPLAYS MODAL 
     document.getElementById("myModal").style.display = "block";
-    document.getElementById("modal-next-word").addEventListener("click", function() {
+
+
+    // ADD EVENT LISTENERS AND REMOVE THEM TO STOP THEM FIRING MULTIPLE TIMES
+    function nextWordClickHandle() {
         changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords)
         document.getElementById("myModal").style.display = "none";
-    })
-    document.getElementById("modal-new-game").addEventListener("click", function() {
+        document.getElementById("modal-next-word").removeEventListener("click", nextWordClickHandle)
+
+    }
+    document.getElementById("modal-next-word").addEventListener("click", nextWordClickHandle)
+
+    function newGameClickHandle() {
         window.location.href = "index.html";
         document.getElementById("myModal").style.display = "none";
+        document.getElementById("modal-new-game").removeEventListener("click", newGameClickHandle)
+    }
+    document.getElementById("modal-new-game").addEventListener("click", newGameClickHandle)
 
-    })
+
+    // DELETE IMAGE LEFT FROM THE LAST SUCCESS OR FAILURE
+    document.getElementById("success-image").style.display = "none";
+    document.getElementById("failure-image").style.display = "none";
+
 
     // DISPLAYS SUCCES OR FAILURE ELEMENTS
     if (value === 1) {
@@ -457,5 +467,30 @@ function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWord
     } else {
         document.getElementById("modal-message").innerText = "Oh,no... \nThe snowman melted";
         document.getElementById("failure-image").style.display = "block";
+    }
+}
+
+function refreshGame() {
+    // SET SNOWMAN LIFE TO INITIAL STATE
+    document.getElementById("snowman-life").innerText = "100";
+
+    // SET SNOWMAN IMAGE TO INITIAL STATE
+    document.getElementById("melted0").style.display = "block";
+    document.getElementById("melted1").style.display = "none";
+    document.getElementById("melted2").style.display = "none";
+    document.getElementById("melted3").style.display = "none";
+    document.getElementById("hat").style.transform = "initial";
+    document.getElementById("left-hand").style.transform = "initial";
+    document.getElementById("right-hand").style.transform = "initial";
+    document.getElementById("nose").style.transform = "initial";
+
+    // SET HINT ELEMENTS TO INITIAL STYLE
+    document.getElementById("hint-container").getElementsByTagName("i")[0].style.display = "block";
+    document.getElementById("hint-container").getElementsByTagName("p")[0].style.display = "none";
+
+    // SET ALPHABET IMAGE TO INITIAL STATE
+    let alphabet = document.getElementById("alphabet-container").getElementsByTagName("li");
+    for (let letter of alphabet) {
+        letter.style.opacity = "1";
     }
 }
