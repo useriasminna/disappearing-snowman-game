@@ -270,7 +270,7 @@ footer a {
     margin-bottom: 5px;
 }
 
-#cartoon-container {
+.cartoon-container {
     width: 100%;
     height: 205px;
 
@@ -282,7 +282,7 @@ footer a {
 
 }
 
-#cartoon-container p {
+.cartoon-container p {
     position: absolute;
     top: 16%;
     right: 16%;
@@ -290,9 +290,10 @@ footer a {
     font-weight: bold;
 }
 
-#cartoon-container>img {
+.cartoon-container>img {
     height: 145px;
     position: absolute;
+    left: 0;
 
     transform: rotateZ(10deg);
     animation: sun 0.5s infinite;
@@ -309,7 +310,7 @@ footer a {
     }
 }
 
-#melting-snowman-container {
+.melting-snowman-container {
     width: 235px;
     height: 220px;
     position: relative;
@@ -321,12 +322,12 @@ footer a {
 
 }
 
-#sun {
+.sun {
     top: -8%;
     left: 0%;
 }
 
-#melting-snowman-container img {
+.melting-snowman-container img {
     height: 145px;
     position: absolute;
 }
@@ -518,4 +519,100 @@ footer a {
     background-color: #6e3b96;
     border: 1px solid #4e0885;
     color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 37%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 15px 15px 5px 15px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 3px solid #00bfff70;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+#modal-message {
+    font-weight: bold;
+    color: #3395dcb0;
+}
+
+#modal-sun {
+    height: 130px;
+}
+
+#success-image {
+    display: none;
+    height: 130px;
+    right: 30%;
+
+}
+
+#failure-image {
+    display: none;
+    height: 130px;
+    right: 30%;
+
+}
+
+
+#modal-lower-section p:nth-child(1),
+#modal-lower-section p:nth-child(2) {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#modal-next-word {
+    color: green;
+}
+
+#modal-next-word:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#modal-new-game {
+    color: rebeccapurple;
+}
+
+#modal-new-game:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#modal-lower-section p:nth-child(3) {
+    font-size: 13px;
 }
