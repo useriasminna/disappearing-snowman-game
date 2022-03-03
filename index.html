@@ -50,10 +50,10 @@
                     <div id="game-area">
                         <div id="upper-section">
                             <!-- MELTING SNOWMAN CONTAINER -->
-                            <div id="cartoon-container">
-                                <img id="sun" src="assets/images/sun.png" alt="A smiling sun">
+                            <div class="cartoon-container">
+                                <img class="sun" src="assets/images/sun.png" alt="A smiling sun">
                                 <p><span id="snowman-life">100</span>% LIFE</p>
-                                <div id="melting-snowman-container">
+                                <div class="melting-snowman-container">
                                     <img id="hat" src="assets/images/hat.png" alt="A black hat">
                                     <img id="melted0" class="body" src="assets/images/body.png" alt="A snowman body">
                                     <img id="melted1" class="body" src="assets/images/body-melted1.png" alt="A snowman body">
@@ -112,7 +112,7 @@
                     </div>
                     <!-- SCORE CONTAINER -->
                     <div id="score-container">
-                        <p>Succes: <span id="succes">0</span></p>
+                        <p>Success: <span id="success">0</span></p>
                         <p>Failure: <span id="failure">0</span></p>
                     </div>
                     <div id="lowest-buttons-container">
@@ -122,7 +122,24 @@
                         <button class="btn" type="submit">START NEW GAME!</button>
                     </div>
                 </div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <p id="modal-message"></p>
+                        <div class="cartoon-container">
+                            <img id="modal-sun" src="assets/images/sun.png" alt="A smiling sun">
+                            <div class="melting-snowman-container">
+                                <img id="success-image" src="assets/images/home-snowman.png" alt="A smiling snowman">
+                                <img id="failure-image" src="assets/images/failure-modal-img.png" alt="A melted snowman">
+                            </div>
+                        </div>
+                        <div id="modal-lower-section">
+                            <p id="modal-next-word">Play another word &#10095;&#10095;</p>
+                            <p id="modal-new-game">Start new game &#10095;&#10095;</p>
+                            <p>&#42;Starting another game will delete the score</p>
+                        </div>
+                    </div>
 
+                </div>
             </section>
         </div>
         <footer>
