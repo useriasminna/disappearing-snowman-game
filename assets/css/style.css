@@ -96,7 +96,7 @@ header h2 {
 
 /* GAME CONTAINER DISPLAYED AFTER PLAY BUTTON CLICKED */
 #game-elements {
-    opacity: 0;
+    display: none;
     position: absolute;
     top: 0%;
     z-index: -5;
@@ -469,12 +469,12 @@ footer a {
 }
 
 #alphabet-container li {
-    font-size: 21px;
-    width: 24px;
+    font-size: 23px;
+    width: 26px;
     padding: 4px 4px 0px 4px;
     margin: 6px 5px 0px 5px;
-    background-color: #64c9ff;
-    border: 1px solid #41bdff;
+    background-color: #2eb6ff;
+    border: 1px solid #00a6ff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     color: white;
 }
@@ -656,3 +656,13 @@ footer a {
 #game-leave-modal-content p:nth-child(2) span:nth-child(2) {
     color: rebeccapurple;
 }
+
+
+
+@media (min-width:480px) {}
+
+@media (min-width:801px) {}
+
+@media (min-width:1025px) {}
+
+@media (min-width:1281px) {}

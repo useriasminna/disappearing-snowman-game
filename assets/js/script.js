@@ -101,7 +101,7 @@ function generateGameContent(activeLevelValue) {
 
     // DISPLAY GAME CONTENT
     document.getElementById("game-prefferences").style.display = "none";
-    document.getElementById("game-elements").style.opacity = "1";
+    document.getElementById("game-elements").style.display = "block";
     document.getElementById("game-elements").style.height = "auto";
 
 
