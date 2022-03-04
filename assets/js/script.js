@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // LOAD AUDIO FILE
-    const music = new Audio('../assets/audio/background-audio.mp3');
+    const music = new Audio('/assets/audio/background-audio.mp3');
     music.loop = true;
     let plays = 0;
     // MANIPULATE MUSIC ON SOUND CONTROL ICON CLICK
