@@ -120,10 +120,11 @@
                         <!-- TRY ANOTHER WORD BUTTON -->
                         <button id="change-word-btn" class="btn" type="submit">TRY ANOTHER ONE!</button>
                         <!-- NEW GAME BUTTON -->
-                        <button class="btn" type="submit">START NEW GAME!</button>
+                        <button id="new-game-btn" class="btn" type="submit">START NEW GAME!</button>
                     </div>
                 </div>
-                <div id="myModal" class="modal">
+                <!-- MODAL FOR SUCCES OR FAILURE MESSAGE -->
+                <div id="message-modal" class="modal">
                     <div class="modal-content">
                         <p id="modal-message"></p>
                         <div class="cartoon-container">
@@ -138,6 +139,16 @@
                             <p id="modal-new-game">Start new game &#10095;&#10095;</p>
                             <p>&#42;Starting another game will delete the score</p>
                         </div>
+                    </div>
+                </div>
+                <!-- MODAL FOR LEAVE GAME -->
+                <div id="game-leave-modal" class="modal">
+                    <div id="game-leave-modal-content" class="modal-content">
+                        <p>If you leave now your score will be lost <br>Are you sure you want to continue?</p>
+                        <p>
+                            <span>YES</span>
+                            <SPAN>NO</SPAN>
+                        </p>
                     </div>
 
                 </div>
