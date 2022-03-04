@@ -189,7 +189,7 @@ header h2 {
     float: right;
     position: absolute;
     right: -4%;
-    top: 74%;
+    top: 72%;
 }
 
 /* FOOTER */
@@ -537,7 +537,6 @@ footer a {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 37%;
     left: 0;
     top: 0;
     width: 100%;
@@ -548,15 +547,17 @@ footer a {
 
 .modal-content {
     position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: #fefefe;
     margin: auto;
-    padding: 15px 15px 5px 15px;
+    padding: 15px 15px 5px 10px;
     border: 1px solid #888;
     width: 80%;
     height: 350px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border: 3px solid #00bfff70;
-    animation-name: animatetop;
+    animation-name: animatescale;
     animation-duration: 0.4s;
     display: flex;
     flex-direction: column;
@@ -564,14 +565,15 @@ footer a {
     text-align: center;
 }
 
-@keyframes animatetop {
+
+@keyframes animatescale {
     from {
-        top: -300px;
+        scale: 0;
         opacity: 0
     }
 
     to {
-        top: 0;
+        scale: 1;
         opacity: 1
     }
 }
@@ -628,4 +630,29 @@ footer a {
 
 #modal-lower-section p:nth-child(3) {
     font-size: 13px;
+}
+
+#game-leave-modal-content {
+    padding: 20px;
+    height: 200px;
+}
+
+#game-leave-modal-content p:nth-child(1) {
+    font-weight: bold;
+    color: #3395dca6;
+    margin-bottom: 25px;
+}
+
+#game-leave-modal-content p:nth-child(2) span {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 30px;
+}
+
+#game-leave-modal-content p:nth-child(2) span:nth-child(1) {
+    color: green;
+}
+
+#game-leave-modal-content p:nth-child(2) span:nth-child(2) {
+    color: rebeccapurple;
 }
