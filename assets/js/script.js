@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
 /**
  * Replace the initial menu from game section with the game content
  */
@@ -137,10 +139,6 @@ function generateGameContent(activeLevelValue) {
     checkedWords.push(actualRandomWord);
     console.log(checkedWords);
 
-    // ADD EVENT LISTENER FOR TRY ANOTHER WORD BUTTON
-    document.getElementById("change-word-btn").addEventListener("click", function() {
-        changeRandomWord(activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
-    });
 
     let letters = document.getElementById("alphabet-container").getElementsByTagName("li");
     for (let letter of letters) {
@@ -151,6 +149,17 @@ function generateGameContent(activeLevelValue) {
 
         });
     }
+
+    // ADD EVENT LISTENER FOR TRY ANOTHER WORD BUTTON
+    document.getElementById("change-word-btn").addEventListener("click", function() {
+        changeRandomWord(activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
+    });
+
+    // ADD EVENT LISTENER FOR NEW GAME BUTTON
+    document.getElementById("new-game-btn").addEventListener("click", function() {
+        displayLeaveModal();
+    });
+
 }
 
 /**
@@ -434,13 +443,13 @@ function updateSnowman(lifeValue) {
 function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWords) {
 
     // DISPLAYS MODAL 
-    document.getElementById("myModal").style.display = "block";
+    document.getElementById("message-modal").style.display = "block";
 
 
     // ADD EVENT LISTENERS AND REMOVE THEM TO STOP THEM FIRING MULTIPLE TIMES
     function nextWordClickHandle() {
         changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords)
-        document.getElementById("myModal").style.display = "none";
+        document.getElementById("message-modal").style.display = "none";
         document.getElementById("modal-next-word").removeEventListener("click", nextWordClickHandle)
 
     }
@@ -448,8 +457,9 @@ function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWord
 
     function newGameClickHandle() {
         window.location.href = "index.html";
-        document.getElementById("myModal").style.display = "none";
+        document.getElementById("message-modal").style.display = "none";
         document.getElementById("modal-new-game").removeEventListener("click", newGameClickHandle)
+
     }
     document.getElementById("modal-new-game").addEventListener("click", newGameClickHandle)
 
@@ -493,4 +503,18 @@ function refreshGame() {
     for (let letter of alphabet) {
         letter.style.opacity = "1";
     }
+}
+
+function displayLeaveModal() {
+    // DISPLAYS MODAL 
+    document.getElementById("game-leave-modal").style.display = "block";
+
+    document.getElementById("game-leave-modal").getElementsByTagName("p")[1].getElementsByTagName("span")[0].addEventListener("click", function() {
+        document.getElementById("game-leave-modal").style.display = "none";
+        window.location.href = "index.html";
+    })
+
+    document.getElementById("game-leave-modal").getElementsByTagName("p")[1].getElementsByTagName("span")[1].addEventListener("click", function() {
+        document.getElementById("game-leave-modal").style.display = "none";
+    })
 }
