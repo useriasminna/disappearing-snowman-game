@@ -47,7 +47,7 @@ h1 {
 /* HEADER */
 header {
     height: 170px;
-    padding: 30px 20px;
+    padding: 30px 0px;
     text-align: center;
     background-image: linear-gradient(#fff 33%, #3395dc00);
     font-weight: bold;
@@ -610,10 +610,12 @@ footer a {
 
 }
 
+#modal-lower-section {
+    font-size: 15px;
+}
 
 #modal-lower-section p:nth-child(1),
 #modal-lower-section p:nth-child(2) {
-    font-size: 15px;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -667,13 +669,59 @@ footer a {
 
 
 
-@media (min-width:480px) {}
+@media (min-width:480px) {
+    header {
+        padding: 30px 8px;
+    }
 
-@media (min-width:665px) {
+    #sound-control i {
+        font-size: 35px;
+    }
+
+    /* GAME DIFFICULTY MENU */
+    #game-prefferences {
+        width: 80%;
+    }
+
+    #game-prefferences img {
+        height: 230px;
+    }
+
+    /* GAME CONTENT CONTAINER */
     #game-area {
         width: 80%;
     }
 
+    /* MODAL */
+    .modal-content {
+        width: 350px;
+    }
+}
+
+@media (min-width:665px) {
+    body {
+        font-size: 22px;
+    }
+
+    header h2 {
+        font-size: 23px;
+    }
+
+    /* GAME SECTION */
+    #game-section {
+        margin-top: 5%;
+    }
+
+    /* PLAY BUTTON */
+    #game-prefferences button {
+        font-size: 22px;
+    }
+
+    #game-prefferences img {
+        height: 250px;
+    }
+
+    /* GAME CONTENT UPPER SECTION */
     #upper-section {
         flex-direction: row-reverse;
         height: 300px;
@@ -687,9 +735,49 @@ footer a {
         top: 25%;
     }
 
-    #cartoon-container {
+    #game-cartoon {
         position: absolute;
         right: 2%;
+    }
+
+    #alphabet-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #score-container {
+        margin-top: 5%;
+    }
+
+    /* TRY ANOTHER ONE AND START NEW GAME BUTTONS */
+    #lowest-buttons-container button {
+        font-size: 22px;
+    }
+
+    /* MODAL */
+    .modal-content {
+        width: 400px;
+    }
+
+    #modal-message {
+        font-size: 23px;
+    }
+
+    #modal-sun {
+        height: 140px;
+    }
+
+    #success-image,
+    #failure-image {
+        height: 140px;
+    }
+
+    #modal-lower-section {
+        font-size: 18px;
+    }
+
+    #modal-lower-section p:nth-child(3) {
+        font-size: 16px;
     }
 
 }
