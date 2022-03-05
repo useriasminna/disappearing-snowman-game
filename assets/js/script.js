@@ -117,6 +117,10 @@ function generateGameContent(activeLevelValue) {
 
     // STYLE CONTENT-WRAP DIV TO FIX THE FOOTER AT THE BOTTOM OF THE PAGE
     document.getElementById("content-wrap").style.paddingBottom = "780px";
+
+    if (window.matchMedia("(min-width: 1025px)")) {
+        document.getElementById("content-wrap").style.paddingBottom = "680px";
+    }
     document.getElementById("content-wrap").style.position = "relative";
     document.getElementById("content-wrap").style.zIndex = "-3";
 
@@ -245,7 +249,7 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
         refreshGame();
 
         let exist;
-        let actualRandomWord
+        let actualRandomWord;
         // CHECK IF WORD ALREADY EXISTS IN THE PLAYED WORDS ARRAY
         do {
 
@@ -395,7 +399,7 @@ function checkLife(level, wordsArray, easyWords, mediumWords, hardWords) {
 
         if (parseInt(document.getElementById("snowman-life").innerText) === 0) {
             updateScore(0);
-            displayModal(0, level, wordsArray, easyWords, mediumWords, hardWords)
+            displayModal(0, level, wordsArray, easyWords, mediumWords, hardWords);
         }
     }
 }
@@ -452,20 +456,20 @@ function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWord
 
     // ADD EVENT LISTENERS AND REMOVE THEM TO STOP THEM FIRING MULTIPLE TIMES
     function nextWordClickHandle() {
-        changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords)
+        changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords);
         document.getElementById("message-modal").style.display = "none";
-        document.getElementById("modal-next-word").removeEventListener("click", nextWordClickHandle)
+        document.getElementById("modal-next-word").removeEventListener("click", nextWordClickHandle);
 
     }
-    document.getElementById("modal-next-word").addEventListener("click", nextWordClickHandle)
+    document.getElementById("modal-next-word").addEventListener("click", nextWordClickHandle);
 
     function newGameClickHandle() {
         window.location.href = "index.html";
         document.getElementById("message-modal").style.display = "none";
-        document.getElementById("modal-new-game").removeEventListener("click", newGameClickHandle)
+        document.getElementById("modal-new-game").removeEventListener("click", newGameClickHandle);
 
     }
-    document.getElementById("modal-new-game").addEventListener("click", newGameClickHandle)
+    document.getElementById("modal-new-game").addEventListener("click", newGameClickHandle);
 
 
     // DELETE IMAGE LEFT FROM THE LAST SUCCESS OR FAILURE
@@ -516,9 +520,9 @@ function displayLeaveModal() {
     document.getElementById("game-leave-modal").getElementsByTagName("p")[1].getElementsByTagName("span")[0].addEventListener("click", function() {
         document.getElementById("game-leave-modal").style.display = "none";
         window.location.href = "index.html";
-    })
+    });
 
     document.getElementById("game-leave-modal").getElementsByTagName("p")[1].getElementsByTagName("span")[1].addEventListener("click", function() {
         document.getElementById("game-leave-modal").style.display = "none";
-    })
+    });
 }
