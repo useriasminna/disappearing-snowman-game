@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // LOAD AUDIO FILE
-    const music = new Audio('https://github.com/useriasminna/disappearing-snowman-game/blob/main/assets/audio/background-audio.mp3');
+    const music = new Audio('https://github.com/useriasminna/disappearing-snowman-game/blob/main/assets/audio/background-audio.mp3?raw=true');
     music.loop = true;
     let plays = 0;
     // MANIPULATE MUSIC ON SOUND CONTROL ICON CLICK
