@@ -13,7 +13,6 @@ body {
     font-size: 18px;
     background: url("../images/background.jpg") no-repeat center center;
     background-size: cover;
-    background-attachment: fixed;
 
 }
 
@@ -21,6 +20,10 @@ body,
 button {
     font-family: 'Special Elite', cursive;
 
+}
+
+#content-wrap {
+    padding-bottom: 460px;
 }
 
 /* CLASS FOR ALL BUTONS */
@@ -81,10 +84,6 @@ header h2 {
     font-size: 30px;
 }
 
-#sound-control i:hover {
-    cursor: pointer;
-}
-
 .icon-inactive {
     display: none;
 }
@@ -92,6 +91,9 @@ header h2 {
 /* CONTAINER FOR GAME CONTENT */
 #game-section {
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* GAME CONTAINER DISPLAYED AFTER PLAY BUTTON CLICKED */
@@ -139,11 +141,6 @@ header h2 {
 
 }
 
-#game-prefferences li:hover {
-    background-color: #77469b;
-    border: 1px solid #522f6c;
-    cursor: pointer;
-}
 
 .level-inactive {
     background-color: #22b3e5ed;
@@ -177,10 +174,6 @@ header h2 {
 }
 
 
-#game-prefferences button:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
 
 #game-prefferences img {
     height: 200px;
@@ -188,6 +181,17 @@ header h2 {
     position: absolute;
     right: -4%;
     top: 72%;
+}
+
+
+#game-rules {
+    width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #42526e;
 }
 
 /* FOOTER */
@@ -221,9 +225,7 @@ footer li {
 
 }
 
-footer li:hover {
-    border: 2px solid #0761a3;
-}
+
 
 footer a {
     color: #0761a3;
@@ -435,10 +437,7 @@ footer a {
     transition: color 0.1s ease-out;
 }
 
-#hint-container i:hover {
-    cursor: pointer;
-    color: #3a3a3a;
-}
+
 
 #hint-container p:nth-child(2) {
     display: none;
@@ -487,10 +486,7 @@ footer a {
     color: white;
 }
 
-#alphabet-container li:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
+
 
 /* CONTAINER FOR GAME SCORE  */
 #score-container {
@@ -523,10 +519,6 @@ footer a {
 
 }
 
-#lowest-buttons-container button:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
 
 #lowest-buttons-container button:nth-child(1) {
     background-color: #3a3a3a;
@@ -624,19 +616,10 @@ footer a {
     color: green;
 }
 
-#modal-next-word:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
 #modal-new-game {
     color: rebeccapurple;
 }
 
-#modal-new-game:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
 
 #modal-lower-section p:nth-child(3) {
     font-size: 13px;
@@ -699,26 +682,20 @@ footer a {
 }
 
 @media (min-width:665px) {
-    body {
-        font-size: 22px;
-    }
 
-    header h2 {
-        font-size: 23px;
-    }
 
     /* GAME SECTION */
     #game-section {
         margin-top: 5%;
     }
 
-    /* PLAY BUTTON */
-    #game-prefferences button {
-        font-size: 22px;
+    #content-wrap {
+        padding-bottom: 225px;
     }
 
-    #game-prefferences img {
-        height: 250px;
+    /* SOUND ICON */
+    #sound-control {
+        top: 115px;
     }
 
     /* GAME CONTENT UPPER SECTION */
@@ -749,11 +726,6 @@ footer a {
         margin-top: 5%;
     }
 
-    /* TRY ANOTHER ONE AND START NEW GAME BUTTONS */
-    #lowest-buttons-container button {
-        font-size: 22px;
-    }
-
     /* MODAL */
     .modal-content {
         width: 400px;
@@ -782,8 +754,140 @@ footer a {
 
 }
 
-@media (min-width:801px) {}
+@media (min-width:801px) {
 
-@media (min-width:1025px) {}
+    #content-wrap {
+        padding-bottom: 505px;
+    }
+
+    /* GAME DIFFICULTY MENU */
+    #game-prefferences {
+        width: 70%;
+    }
+
+    #game-prefferences img {
+        top: 110%;
+        height: 250px;
+    }
+
+    #game-rules {
+        top: 200%;
+    }
+
+    /* GAME CONTENT CONTAINER */
+    #game-area {
+        width: 70%;
+    }
+
+    /* HOVER EFFECTS */
+    #sound-control i:hover {
+        cursor: pointer;
+    }
+
+    #game-prefferences li:hover {
+        background-color: #77469b;
+        border: 1px solid #522f6c;
+        cursor: pointer;
+    }
+
+    #game-prefferences button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    footer li:hover {
+        border: 2px solid #0761a3;
+    }
+
+    #hint-container i:hover {
+        cursor: pointer;
+        color: #3a3a3a;
+    }
+
+    #alphabet-container li:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    #lowest-buttons-container button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    #modal-next-word:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    #modal-new-game:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+
+}
+
+@media (min-width:1025px) {
+    #content-wrap {
+        padding-bottom: 375px;
+    }
+
+    #game-section {
+        margin-top: 2%;
+    }
+
+    #game-prefferences {
+        width: 50%;
+    }
+
+    #game-prefferences img {
+        top: 70%;
+    }
+
+    #game-rules {
+        top: 150%;
+    }
+
+    #game-cartoon {
+        right: 4%;
+    }
+
+    /* GAME IMAGE CONTAINER */
+    .cartoon-container {
+        height: 230px;
+    }
+
+    .cartoon-container>img {
+        height: 160px;
+        left: -30px;
+    }
+
+    /* GAME SNOWMAN IMAGE */
+    .melting-snowman-container img {
+        height: 160px;
+    }
+
+    #hat {
+        top: -12%;
+    }
+
+    .boddy {
+        bottom: 8%;
+    }
+
+    #nose {
+        top: -3%;
+    }
+
+    #left-hand {
+        top: 4%;
+    }
+
+    #right-hand {
+        top: 2%;
+    }
+
+
+}
 
 @media (min-width:1281px) {}
