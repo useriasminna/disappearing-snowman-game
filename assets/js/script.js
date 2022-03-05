@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // LOAD AUDIO FILE
-    const music = new Audio('/assets/audio/background-audio.mp3');
+    const music = new Audio('https://github.com/useriasminna/disappearing-snowman-game/blob/main/assets/audio/background-audio.mp3');
     music.loop = true;
     let plays = 0;
     // MANIPULATE MUSIC ON SOUND CONTROL ICON CLICK
@@ -104,7 +104,11 @@ function generateGameContent(activeLevelValue) {
     document.getElementById("game-elements").style.display = "block";
     document.getElementById("game-elements").style.height = "auto";
 
-
+    // DISPLAY LEAVE MODAL AFTER CLICKING ON THE GAME TITLE
+    document.getElementsByTagName("header")[0].getElementsByTagName("a")[0].addEventListener("click", function(e) {
+        e.preventDefault();
+        displayLeaveModal();
+    });
 
     // CHANGE SUBTITLE
     document.getElementsByTagName("header")[0].getElementsByTagName("h2")[0].innerText = "Guess the word and help the snowman rezist the heat";
