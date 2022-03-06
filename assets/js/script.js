@@ -118,7 +118,8 @@ function generateGameContent(activeLevelValue) {
     // STYLE CONTENT-WRAP DIV TO FIX THE FOOTER AT THE BOTTOM OF THE PAGE
     document.getElementById("content-wrap").style.paddingBottom = "780px";
 
-    if (window.matchMedia("(min-width: 1025px)")) {
+    const mediaQuery = window.matchMedia('(min-width: 1025px)')
+    if (mediaQuery.matches) {
         document.getElementById("content-wrap").style.paddingBottom = "680px";
     }
     document.getElementById("content-wrap").style.position = "relative";
