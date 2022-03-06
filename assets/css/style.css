@@ -202,7 +202,7 @@ footer {
 
     position: absolute;
     bottom: 0%;
-    z-index: -1;
+    z-index: 0;
 }
 
 footer ul {
@@ -698,6 +698,10 @@ footer a {
         top: 115px;
     }
 
+    #game-rules {
+        margin-top: 15px;
+    }
+
     /* GAME CONTENT UPPER SECTION */
     #upper-section {
         flex-direction: row-reverse;
@@ -767,11 +771,11 @@ footer a {
 
     #game-prefferences img {
         top: 110%;
-        height: 250px;
     }
 
     #game-rules {
         top: 200%;
+        margin-top: 0px;
     }
 
     /* GAME CONTENT CONTAINER */
@@ -822,6 +826,10 @@ footer a {
     #modal-new-game:hover {
         cursor: pointer;
         transform: scale(1.1);
+    }
+
+    #game-leave-modal-content p:nth-child(2) span:hover {
+        cursor: pointer;
     }
 
 
@@ -890,4 +898,16 @@ footer a {
 
 }
 
-@media (min-width:1281px) {}
+@media (min-width:1281px) {
+    #content-wrap {
+        padding-bottom: 290px;
+    }
+
+    #game-prefferences img {
+        top: 45%;
+    }
+
+    #game-rules {
+        top: 124%;
+    }
+}
