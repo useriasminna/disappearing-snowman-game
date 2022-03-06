@@ -518,12 +518,12 @@ function displayLeaveModal() {
     // DISPLAYS MODAL 
     document.getElementById("game-leave-modal").style.display = "block";
 
-    document.getElementById("game-leave-modal").getElementsByTagName("p")[1].getElementsByTagName("span")[0].addEventListener("click", function() {
+    document.getElementById("game-leave-modal-confirm").addEventListener("click", function() {
         document.getElementById("game-leave-modal").style.display = "none";
         window.location.href = "index.html";
     });
 
-    document.getElementById("game-leave-modal").getElementsByTagName("p")[1].getElementsByTagName("span")[1].addEventListener("click", function() {
+    document.getElementById("game-leave-modal-cancel").addEventListener("click", function() {
         document.getElementById("game-leave-modal").style.display = "none";
     });
 }
