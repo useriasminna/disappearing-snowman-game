@@ -630,23 +630,29 @@ footer a {
     height: 200px;
 }
 
-#game-leave-modal-content p:nth-child(1) {
+#game-leave-modal-content>p {
     font-weight: bold;
     color: #3395dca6;
     margin-bottom: 25px;
 }
 
-#game-leave-modal-content p:nth-child(2) span {
+#game-leave-modal-content div {
+    display: flex;
+    justify-content: center;
+
+}
+
+#game-leave-modal-content div p {
     font-size: 20px;
     font-weight: bold;
     margin: 0px 30px;
 }
 
-#game-leave-modal-content p:nth-child(2) span:nth-child(1) {
+#game-leave-modal-confirm {
     color: green;
 }
 
-#game-leave-modal-content p:nth-child(2) span:nth-child(2) {
+#game-leave-modal-cancel {
     color: rebeccapurple;
 }
 
@@ -828,8 +834,9 @@ footer a {
         transform: scale(1.1);
     }
 
-    #game-leave-modal-content p:nth-child(2) span:hover {
+    #game-leave-modal-content div p:hover {
         cursor: pointer;
+        transform: scale(1.1);
     }
 
 
