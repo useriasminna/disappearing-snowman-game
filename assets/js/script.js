@@ -118,7 +118,7 @@ function generateGameContent(activeLevelValue) {
     // STYLE CONTENT-WRAP DIV TO FIX THE FOOTER AT THE BOTTOM OF THE PAGE
     document.getElementById("content-wrap").style.paddingBottom = "780px";
 
-    const mediaQuery = window.matchMedia('(min-width: 1025px)')
+    const mediaQuery = window.matchMedia('(min-width: 1025px)');
     if (mediaQuery.matches) {
         document.getElementById("content-wrap").style.paddingBottom = "680px";
     }
@@ -284,7 +284,7 @@ var data = " ";
  */
 function makeAPIRequest(method, url) {
 
-    return new Promise((resolve, reject) => {
+    return new Promise(function(resolve, reject) {
         const req = new XMLHttpRequest();
         req.open(method, url);
         req.send();
