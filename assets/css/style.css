@@ -781,11 +781,11 @@ footer a {
     }
 
     #game-prefferences img {
-        top: 110%;
+        top: 90%;
     }
 
     #game-rules {
-        top: 200%;
+        top: 170%;
         margin-top: 0px;
         background-color: #ffffffbf;
         padding: 10px;
@@ -868,7 +868,7 @@ footer a {
     }
 
     #game-rules {
-        top: 150%;
+        top: 130%;
     }
 
     #game-cartoon {
