@@ -23,7 +23,7 @@ button {
 }
 
 #content-wrap {
-    padding-bottom: 460px;
+    padding-bottom: 505px;
 }
 
 /* CLASS FOR ALL BUTONS */
@@ -180,7 +180,7 @@ header h2 {
     float: right;
     position: absolute;
     right: -4%;
-    top: 72%;
+    top: 83%;
 }
 
 
@@ -708,6 +708,11 @@ footer a {
         margin-top: 15px;
     }
 
+    #game-prefferences img {
+        top: 78%;
+    }
+
+
     /* GAME CONTENT UPPER SECTION */
     #upper-section {
         flex-direction: row-reverse;
@@ -782,6 +787,9 @@ footer a {
     #game-rules {
         top: 200%;
         margin-top: 0px;
+        background-color: #ffffffbf;
+        padding: 10px;
+        border-radius: 25px;
     }
 
     /* GAME CONTENT CONTAINER */
@@ -856,7 +864,7 @@ footer a {
     }
 
     #game-prefferences img {
-        top: 70%;
+        top: 45%;
     }
 
     #game-rules {
@@ -908,10 +916,6 @@ footer a {
 @media (min-width:1281px) {
     #content-wrap {
         padding-bottom: 290px;
-    }
-
-    #game-prefferences img {
-        top: 45%;
     }
 
     #game-rules {
