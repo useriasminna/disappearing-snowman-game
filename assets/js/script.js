@@ -146,14 +146,12 @@ function generateGameContent(activeLevelValue) {
 
     // ADD THE WORD IN THE LIST OF PLAYED WORDS
     checkedWords.push(actualRandomWord);
-    console.log(checkedWords);
 
 
     let letters = document.getElementById("alphabet-container").getElementsByTagName("li");
     for (let letter of letters) {
         letter.addEventListener("click", function() {
             this.style.opacity = "0";
-            // console.log("da")
             handleChosenLetter(this.innerText, activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
 
         });
@@ -270,7 +268,6 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
 
         // ADD THE WORD IN THE LIST OF PLAYED WORDS
         checkedWordsArray.push(actualRandomWord);
-        console.log(checkedWordsArray);
 
     }
 
@@ -498,6 +495,7 @@ function refreshGame() {
     document.getElementById("melted1").style.display = "none";
     document.getElementById("melted2").style.display = "none";
     document.getElementById("melted3").style.display = "none";
+    ""
     document.getElementById("hat").style.transform = "initial";
     document.getElementById("left-hand").style.transform = "initial";
     document.getElementById("right-hand").style.transform = "initial";
