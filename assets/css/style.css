@@ -568,12 +568,10 @@ footer a {
 
 @keyframes animatescale {
     from {
-        scale: 0;
         opacity: 0
     }
 
     to {
-        scale: 1;
         opacity: 1
     }
 }
@@ -676,6 +674,12 @@ footer a {
         height: 230px;
     }
 
+    #game-rule {
+        background-color: #ffffffbf;
+        padding: 10px;
+        border-radius: 25px;
+    }
+
     /* GAME CONTENT CONTAINER */
     #game-area {
         width: 80%;
@@ -759,10 +763,6 @@ footer a {
         height: 140px;
     }
 
-    #modal-lower-section {
-        font-size: 18px;
-    }
-
     #modal-lower-section p:nth-child(3) {
         font-size: 16px;
     }
@@ -787,9 +787,7 @@ footer a {
     #game-rules {
         top: 170%;
         margin-top: 0px;
-        background-color: #ffffffbf;
-        padding: 10px;
-        border-radius: 25px;
+
     }
 
     /* GAME CONTENT CONTAINER */
