@@ -35,13 +35,13 @@ This game was created respecting the Five Planes Of Website Design:<br><br>
 For the implementation of the game I have planned the following features:
 
 * Home page for the user to get familiar with the game's purpose
+* Sound control for background music
 * A game menu for the user to choose the difficulty of the game he wants to play
 * Highlighted buttons to show the user how to navigate the game
 * A game section in which there is the word string and its hint
 * A game section where the user can pick up letters from the alphabet to guess the word
 * Features that will show the user if the chosen letter was correct or incorrect
 * A dynamic score section that updates its value with each success or failure of the user
-* Possibility to restart the game at any time
 * Propper messages to be desplayed to the user in case of errors or other types of exceptions
 
 ### STRUCTURE<br>
@@ -73,5 +73,53 @@ Considering that the main theme of the game is winter, all the colors used for c
 
 #### Fonts
 * The fonts used in the game are Special Elite and Bangers and both were imported from [Google Fonts](https://fonts.google.com/)
+<hr>
+
+## FEATURES
+### EXISTING FEATURES<br>
+This game has multiple features that were created to make it an easy and intuitive game to play for children and adults as well.<br><br>
+* When the game first loads the user will see the home page which has the role to familiarize him with the game.<br>
+  The theme of the game can be easily understood from the winter background and the snowman character that is placed on the page. Also, the rules for the game were clearly written for everyone to understand.<br>
+  <img src="assets/images/rules.PNG" width="40%">
+  <img src="assets/images/home-snowman.png" width="20%">
+
+* For a full experience, the game offers winter background sound as well which is set to be off by default but can be controled by the user.<br>
+  <img src="assets/images/sound.PNG" width="30%">
+
+* A very important feature is the menu in the home page with the difficulties options for the game. Once a level is chosen and the user press Play, the game content will be generated depending on the user's choice.<br>
+  <img src="assets/images/menu.PNG" width="30%">
+
+
+* These buttons are placed in the home page, as well in the game section and modals to help the user navigate easily through the game.<br>
+  <img src="assets/images/play.PNG" width="30%">
+  <img src="assets/images/buttons.PNG" width="30%">
+
+
+* An important feature of the game is the one that displays the underscores string for the random word that the user has to guess.Every word comes with a hint to help the player, that will change with the word changing.<br>
+  <img src="assets/images/word.PNG" width="30%">
+
+* In order for the user to play there exists a feature that will let him chose a letter from the alphabet to complete the word. This is the most important feature because it decides what other features will be activated depending on the user's choice.<br>
+  <img src="assets/images/letters.PNG" width="30%">
+
+
+* Everytime a user makes a choice for the letter, either correct or incorrect, the game will give the user a feedback for his choice. When the letter its correct,the game will fill the word string with the letter and will change the snowman shape and decrease its life when its incorrect.<br>
+  <img src="assets/images/word2.PNG" width="30%">
+  <img src="assets/images/snowman1.PNG" width="30%">
+  <img src="assets/images/snowman2.PNG" width="30%">
+
+
+* Another important feature is the score element that updates its value everytime a player succeds or fails in guessing a word.<br>
+    <img src="assets/images/score.PNG" width="30%">
+
+* The game was created to be preventive for certain errors and it displays different messages to inform the user what is wrong or could happen.<br>
+  <img src="assets/images/err1.PNG" width="30%">
+  <img src="assets/images/err2.PNG" width="30%">
+  <img src="assets/images/err3.PNG" width="30%">
+
+
+### FUTURE FEATURES<br>
+* Create a database with words and hints for each level to eliminate the possibility for the list of the words to end
+* Filter the words by categories and let the user choose one of them before playing
+
 <hr>
 
