@@ -95,7 +95,7 @@ This game has multiple features that were created to make it an easy and intuiti
   <img src="assets/images/buttons.PNG" width="30%">
 
 
-* An important feature of the game is the one that displays the underscores string for the random word that the user has to guess.Every word comes with a hint to help the player, that will change with the word changing.<br>
+* An important feature of the game is the one that displays the underscores string for the random word that the user has to guess.Every word comes with a hint to help the player, that will change with the word changing.The hint is actually a definition of the word get from the MerRiam Webster Dictionary API.<br>
   <img src="assets/images/word.PNG" width="30%">
 
 * In order for the user to play there exists a feature that will let him chose a letter from the alphabet to complete the word. This is the most important feature because it decides what other features will be activated depending on the user's choice.<br>
@@ -123,3 +123,7 @@ This game has multiple features that were created to make it an easy and intuiti
 
 <hr>
 
+## UNFIXED BUGS OR ERRORS
+* The definitions get from the Merriam Webster Dictionary API as hints for the words should be better filtered because some of them don't indicate the right sense of the word. Also, in order to make them shorter, I tried to delete parts of the definitions that comes after symbols like "-", ":" using JavaScript, but I noticed it doesn't always work properly and should be fixed.
+* The game should have an <code>beforeunloaded</code> event to inform the user it will loose the game progress if he leaves the page.
+<hr>
