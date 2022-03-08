@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 document.addEventListener("DOMContentLoaded", function() {
     // LOAD AUDIO FILE
     const music = new Audio('https://github.com/useriasminna/disappearing-snowman-game/blob/main/assets/audio/background-audio.mp3?raw=true');
@@ -495,7 +496,6 @@ function refreshGame() {
     document.getElementById("melted1").style.display = "none";
     document.getElementById("melted2").style.display = "none";
     document.getElementById("melted3").style.display = "none";
-    ""
     document.getElementById("hat").style.transform = "initial";
     document.getElementById("left-hand").style.transform = "initial";
     document.getElementById("right-hand").style.transform = "initial";
