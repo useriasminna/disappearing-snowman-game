@@ -275,8 +275,7 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
 
 }
 
-// This variable needs to be var so it can be accesed as a response in getHint() function
-var data = " ";
+let data = " ";
 /**
  * Makes an API request whith a method and url given as parameters
  */
