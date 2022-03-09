@@ -336,8 +336,8 @@ Chrome Lighthouse and Chrome Developer Tools  - used for checking performance of
 Paint 3D - used for editing the snowman's image
 
 ## ACKNOWLEDGEMENTS
--Code Institute for all the material and support offered
--My mentor Ben Kavanagh for great tips and his willingness to help me as much as possible with the problems encountered during the development of the project
--Slack community for great involvement in helping each other
+-Code Institute for all the material and support offered<br>
+-My mentor Ben Kavanagh for great tips and his willingness to help me as much as possible with the problems encountered during the development of the project<br>
+-Slack community for great involvement in helping each other<br>
 <hr>
 
