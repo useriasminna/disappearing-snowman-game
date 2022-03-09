@@ -228,8 +228,12 @@ I validated the HTML code with the website URL using [HTML - W3C HTML Validator]
 I validated the CSS code with the website URL using [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri)<br>
 [![N|Solid](assets/images/css-validator.PNG)](assets/images/css-validator.PNG)<br><br>
 #### Lighthouse
-I generated a Lighthouse report for the game to check that all the parameters get a high score.<br>
+I generated a Lighthouse report from the Chrome Browser to check that all the parameters get a high score.<br>
+The report for desktop is bellow and it shows that all the paremeters have a score of 100.<br>
 [![N|Solid](assets/images/lighthouse-report.PNG)](assets/images/lighthouse-report.PNG)<br><br>
+The report for mobile showed that the Performance score may vary sometimes between 85 and 99.<br>
+[![N|Solid](assets/images/lighthouse-mobile.PNG)](assets/images/lighthouse-mobile.PNG)<br><br>
+
 #### Jshint
 No errors were found when passing through the official [Jshint validator](https://jshint.com/)<br>
 The following metrics were returned:<br>
@@ -238,7 +242,47 @@ The following metrics were returned:<br>
   -Largest function has 27 statements in it, while the median is 5.<br>
   -The most complex function has a cyclomatic complexity value of 13 while the median is 2.<br><br>
 I put the website through WAVE - accessibility evaluation tool.<br>
-The Full Report can be found [here](https://wave.webaim.org/report#/https://useriasminna.github.io/disappearing-snowman-game/index.html).
+The Full Report can be found [here](https://wave.webaim.org/report#/https://useriasminna.github.io/disappearing-snowman-game/index.html).<br><br>
+
+#### Responsiveness
+
+For the responsiveness of the game I have used media queries to make the game design look good on all screen sizes.<br>
+In my css code I have used the following breaking points:<br>
+-min-width:480px<br>
+-min-width:665px<br>
+-min-width:801px<br>
+-min-width:1281px<br>
+-min-width:1025px<br>
+
+The game was tested for different devices to make sure all the elements are in place. I was using Chrome dev tools to switch between all types of screens and all looks good.<br>
+This is the list of devices the game was tested for:<br>
+-Moto G4
+-Iphone SE
+-Iphone XR
+-Iphone 11
+-Iphone 5/SE
+-Iphone 6/7/8
+-Ipad Air
+-Ipad Mini
+-Pixel 5
+-Surface Duo
+-Surface Pro 7
+-Nest Hub
+-Nest Hub Max
+-Samsung Galaxy S20 Ultra
+-Samsung Galaxy S8
+-Galaxy Note 2
+-Galaxy Tab S4
+
+
+Bellow can be seen the difference between mobile and desktop view.<br>
+ While the running game design was pretty easy to adapt for different screens sizes, the start page elements are positioned different depending on the screen dimensions .<br>
+   <img src="assets/images/mobile-start.PNG" width="20%">
+   <img src="assets/images/desktop-start.PNG" width="50%"><br><br>
+   <img src="assets/images/mobile-game.PNG" width="20%">
+   <img src="assets/images/desktop-game.PNG" width="50%"><br><br>
+
+
 <hr>
 
 ## DEPLOYMENT
@@ -275,6 +319,7 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 * The modals code was taken and adapted from [w3schools](https://www.w3schools.com/howto/howto_css_modals.asp)
 * I have made the API request using informations from this [page](https://levelup.gitconnected.com/all-possible-ways-of-making-an-api-call-in-plain-javascript-c0dee3c11b8b)
 * All the <code>box-shadow</code> properties I used were taken from [CSS Scan](https://getcssscan.com/css-box-shadow-examples)
+* The audio file was taken from [Chosic](https://www.chosic.com/free-music/children/)
 <hr>
 
 ## TOOLS
@@ -289,5 +334,10 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 [Diffchecker](https://www.diffchecker.com/) - used for comparing the code<br>
 Chrome Lighthouse and Chrome Developer Tools  - used for checking performance of the website<br>
 Paint 3D - used for editing the snowman's image
+
+## ACKNOWLEDGEMENTS
+-Code Institute for all the material and support offered
+-My mentor Ben Kavanagh for great tips and his willingness to help me as much as possible with the problems encountered during the development of the project
+-Slack community for great involvement in helping each other
 <hr>
 
