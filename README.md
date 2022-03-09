@@ -220,3 +220,74 @@ I have tested the feature to see if it updates the score value in the right case
    <img src="assets/images/score.PNG" width="30%">
    <img src="assets/images/score-update.PNG" width="30%"><br><br>
 
+### VALIDATOR TESTING
+#### Html
+I validated the HTML code with the website URL using [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options)<br>
+[![N|Solid](assets/images/html-validator.PNG)](assets/images/html-validator.PNG)<br><br>
+#### Css
+I validated the CSS code with the website URL using [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri)<br>
+[![N|Solid](assets/images/css-validator.PNG)](assets/images/css-validator.PNG)<br><br>
+#### Lighthouse
+I generated a Lighthouse report for the game to check that all the parameters get a high score.<br>
+[![N|Solid](assets/images/lighthouse-report.PNG)](assets/images/lighthouse-report.PNG)<br><br>
+#### Jshint
+No errors were found when passing through the official [Jshint validator](https://jshint.com/)<br>
+The following metrics were returned:<br>
+  -There are 29 functions in this file.<br>
+  -Function with the largest signature take 6 arguments, while the median is 0.<br>
+  -Largest function has 27 statements in it, while the median is 5.<br>
+  -The most complex function has a cyclomatic complexity value of 13 while the median is 2.<br><br>
+I put the website through WAVE - accessibility evaluation tool.<br>
+The Full Report can be found [here](https://wave.webaim.org/report#/https://useriasminna.github.io/disappearing-snowman-game/index.html).
+<hr>
+
+## DEPLOYMENT
+### CREATING THE WEBSITE
+This site was created using the [Code Institute Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
+The steps were as following:
+- Click the <i>Use this template</i> button
+- A New Repository page will appear, write a Repository name and a short description and press <i>Create repository from template</i>
+- Press the green Gitpod button to create your project workspace and start developing your website<br></br>
+  
+### DEPLOYING ON GITHUB PAGES
+After finishing developing the site I deployed it on <b>Githup Pages</b> following the instructions:
+- Go to <i>Settings</i>
+- Scroll down to <i>Github Pages</i>
+- From Source choose <i>main</i> and Save, this is the branch from where your site will be deployed
+- A link to your website deployed will be generated<br></br>
+
+### FORK THE REPOSITORY 
+For creating a copy of the repository on your account and change it without affecting the original project, use<b>Fork</b> directly from GitHub:
+- On [My Repository Page](https://github.com/useriasminna/mistik-events), press <i>Fork</i> in the top right of the page
+- A forked version of my project will appear in your own repository<br></br>
+
+### CLONE THE REPOSITORY
+For creating a clone of the repository on your local machine, use<b>Clone</b>:
+- On [My Repository Page](https://github.com/useriasminna/mistik-events), click the <i>Code</i> green button, right above the code window
+- Chose from <i>HTTPS, SSH and GitClub CLI</i> format and copy (preferably <i>HTTPS</i>)
+- In your <i>IDE</i> open <i>Git Bash</i>
+- Enter the command <code>git clone</code> followed by the copied URL
+- Your clone was created
+<hr>
+
+## CREDITS
+* I have taken and adapted code for the css animations from [w3schools](https://www.w3schools.com/css/css3_animations.asp)
+* The modals code was taken and adapted from [w3schools](https://www.w3schools.com/howto/howto_css_modals.asp)
+* I have made the API request using informations from this [page](https://levelup.gitconnected.com/all-possible-ways-of-making-an-api-call-in-plain-javascript-c0dee3c11b8b)
+* All the <code>box-shadow</code> properties I used were taken from [CSS Scan](https://getcssscan.com/css-box-shadow-examples)
+<hr>
+
+## TOOLS
+[GitHub](https://github.com/) - used for hosting the source code of the site and the deployed site on GitHub Pages<br>
+[Gitpod Dev Environment](https://gitpod.io/) - used for developing the website<br>
+[HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
+[CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
+[JShint](https://jshint.com/) - used for validating the JavaScript file<br>
+[WAVE](https://wave.webaim.org/) - used for checking the accessibility of the website<br>
+[Favicon.io](https://favicon.io/) - used for generating the website favicon<br>
+[Balsamiq](https://balsamiq.com/) - used for creating the wireframes<br>
+[Diffchecker](https://www.diffchecker.com/) - used for comparing the code<br>
+Chrome Lighthouse and Chrome Developer Tools  - used for checking performance of the website<br>
+Paint 3D - used for editing the snowman's image
+<hr>
+
