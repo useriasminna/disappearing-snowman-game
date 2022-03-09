@@ -153,6 +153,7 @@ function generateGameContent(activeLevelValue) {
     for (let letter of letters) {
         letter.addEventListener("click", function() {
             this.style.opacity = "0";
+            this.style.pointerEvents = "none";
             handleChosenLetter(this.innerText, activeLevelValue, checkedWords, easyWords, mediumWords, hardWords);
 
         });
@@ -455,9 +456,10 @@ function displayModal(value, level, wordsArray, easyWords, mediumWords, hardWord
 
     // ADD EVENT LISTENERS AND REMOVE THEM TO STOP THEM FIRING MULTIPLE TIMES
     function nextWordClickHandle() {
-        changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords);
         document.getElementById("message-modal").style.display = "none";
         document.getElementById("modal-next-word").removeEventListener("click", nextWordClickHandle);
+        changeRandomWord(level, wordsArray, easyWords, mediumWords, hardWords);
+
 
     }
     document.getElementById("modal-next-word").addEventListener("click", nextWordClickHandle);
@@ -509,6 +511,7 @@ function refreshGame() {
     let alphabet = document.getElementById("alphabet-container").getElementsByTagName("li");
     for (let letter of alphabet) {
         letter.style.opacity = "1";
+        letter.style.pointerEvents = "all";
     }
 }
 
