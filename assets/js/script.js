@@ -130,7 +130,7 @@ function generateGameContent(activeLevelValue) {
     document.getElementById("level-container").getElementsByTagName("p")[1].innerText = activeLevelValue;
 
     // ASSIGN RANDOM WORD UNDERSCORES AND HINT TO DOM ELEMENTS
-    var checkedWords = [];
+    let checkedWords = [];
     let actualRandomWord = generateRandomWord(activeLevelValue, easyWords, mediumWords, hardWords);
     document.getElementById("word-container").getElementsByTagName("p")[0].innerText = generateUnderscores(actualRandomWord);
     getHint(actualRandomWord);
@@ -273,10 +273,9 @@ function changeRandomWord(level, checkedWordsArray, easyWords, mediumWords, hard
 
     }
 
-
-
 }
 
+// This variable needs to be var so it can be accesed as a response in getHint() function
 var data = " ";
 /**
  * Makes an API request whith a method and url given as parameters
@@ -290,7 +289,6 @@ function makeAPIRequest(method, url) {
         req.onload = function() {
             data = JSON.parse(req.responseText);
             if (req.status >= 200 && req.status < 300) {
-                console.log('Request done succesfully');
                 resolve(data);
             } else {
                 reject(new Error(req.responseText));
@@ -308,7 +306,7 @@ function makeAPIRequest(method, url) {
  * and assign it as a hint for the word
  */
 function getHint(word) {
-    var hint;
+    let hint;
     let definitions = [];
     makeAPIRequest('GET', "https://www.dictionaryapi.com/api/v3/references/sd4/json/" + word + "?key=4f833322-2eb0-44cf-87d4-cc9c0526e0c9")
         .then(response => {
